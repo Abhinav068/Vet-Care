@@ -29,3 +29,10 @@ app.listen(process.env.PORT || 4900, async () => {
 
 
 
+
+// ***************************************************************************************
+
+// PORT = 4900
+// mongoURL= mongodb+srv://krunalgurao1:krunalgurao@vetcare.i2366lh.mongodb.net/user?retryWrites=true&w=majority
+
+//******************************************************************************************* */
