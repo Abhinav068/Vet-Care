@@ -7,10 +7,10 @@ const Appointmentmodel = model('clinic', new Schema({
         code: { type: Number, default: 1, enum: [0, 1, 2] },
         name: { type: String, default: "upcoming", enum: ["cancelled", "upcoming", "closed"] },
     },
-    petcategory: {type:String, required:true},
-    date: {type:Date, required:true},
-    time: {type:String, required:true},
-    slotNo: {type:Number, required:true},
+    petcategory: { type: String, required: true },
+    bookingdate: { type: Date, required: true },
+    appointmentdate: { type: Date, required: true },
+    slotNo: { type: Number, required: true },
 }))
 
 

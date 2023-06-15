@@ -1,5 +1,5 @@
 const { model, Schema } = require('mongoose');
-const { ObjectId } = mongoose.Schema.Types;
+const { ObjectId } = Schema.Types;
 const clinicmodel = model('clinic', new Schema({
     name: { type: String },
     address: { type: String },

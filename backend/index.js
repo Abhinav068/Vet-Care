@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const { userRouter } = require("./routes/user.router");
 const { bookrouter } = require("./routes/booking.router");
+const { adminrouter } = require("./routes/admin.router");
 
 
 
@@ -17,6 +18,8 @@ app.use(cors());
 
 app.use("/user", userRouter);
 app.use("/book", bookrouter);
+app.use("/admin", adminrouter);
+
 
 app.listen(process.env.PORT || 4900, async () => {
   try {
