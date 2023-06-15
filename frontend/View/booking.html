@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Styles/booking.css">
+</head>
+
+<body>
+
+
+    <nav>
+
+        <!-- add nav bar here -->
+
+
+    </nav>
+
+
+
+    <div id="nit_booking_form">
+
+        <input type="text" id="doctorID">
+
+        <input type="text" placeholder="Doctor Name" id="DR_name_here">
+
+        <input type="date" id="dateField">
+
+        <select id="seletcategory">
+
+            <option value="">Select Pet</option>
+
+            <option value="Dog">Dog</option>
+
+            <option value="Cat">Cat</option>
+
+            <option value="other">Other</option>
+
+        </select>
+
+        <select id="timingslots">
+
+            <!-- append dynamic slots here -->
+
+        </select>
+
+        <input type="text" placeholder="Enter Your Name" id="cust-Name">
+
+        <button onclick="handleBookAppointMent()">Book Now</button>
+
+
+    </div>
+
+
+
+
+
+    <footer>
+
+        <!-- add footer here -->
+
+    </footer>
+
+
+</body>
+
+</html>
+<!-- 
+<script src="../Src/bookappointment.js"></script> -->
+
+
+<script>
+
+    var today = new Date().toISOString().split('T')[0];
+
+
+    document.getElementById("dateField").setAttribute("min", today);
+
+</script>

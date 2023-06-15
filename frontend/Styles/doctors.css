@@ -1,0 +1,70 @@
+body{
+    padding:0;
+    margin:0;
+}
+
+
+#nitesh_doctors{
+    border:1px solid red;
+    margin: 80px auto;
+    width: 90%;
+}
+
+
+#nitesh_doctors >div:nth-child(1){
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#nitesh_doctors input{
+    text-align: center;
+    width: 30%;
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 15px;
+    height: 30px;
+}
+
+
+#nit_doctor_cards{
+    border: 2px solid green;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 15px;
+    margin: auto;
+}
+
+.nit-doc-card{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin: auto;
+    border: 1px solid red;
+    width: 100%;
+}
+
+.nit-doc-card img{
+    width: 25%;
+}
+
+.nit-doc-card  p{
+
+    text-align: center;
+
+}
+
+
+.nit-doc-card button{
+    width: 150px;
+    padding: 7px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+

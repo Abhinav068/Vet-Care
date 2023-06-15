@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#nit_booking_form{
+    border: 1px solid red;
+    width: 50%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nit_booking_form > input, #nit_booking_form > select{
+    width: 50%;
+    height: 25px;
+    margin: 15px;
+    text-align: center;
+}
+
+#nit_booking_form > button{
+    border: none;
+    color: white;
+    background-color: #007bff;
+    padding: 7px;
+    width: 100px;
+    margin: 20px auto;
+    cursor: pointer;
+}
