@@ -1,5 +1,5 @@
 const { model, Schema } = require('mongoose');
-const doctormodel = model('clinic', new Schema({
+const doctormodel = model('doctor', new Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
     available: { type: Boolean, required: true, default: true },
@@ -10,15 +10,28 @@ const doctormodel = model('clinic', new Schema({
         slot1: {
             status: { type: Boolean, required: true, default: true },
             timing: { type: String, required: true, default: "11am-11:30am" },
+            time: { type: String, required: true, default: "11 00" },
         },
         slot2: {
             status: { type: Boolean, required: true, default: true },
-            timing: { type: String, required: true, default: "11:30am-12pm" },
+            timing: { type: String, required: true, default: "11:30am-12pm"},
+            time: { type: String, required: true, default: "11 30" },
         },
         slot3: {
             status: { type: Boolean, required: true, default: true },
-            timing: { type: String, required: true, default: "12pm-12:30pm" },
-        }
+            timing: { type: String, required: true, default: "12pm-12:30pm"},
+            time: { type: String, required: true, default: "12 00" },
+        },
+        slot4: {
+            status: { type: Boolean, required: true, default: true },
+            timing: { type: String, required: true, default: "12:30pm-01:00pm"},
+            time: { type: String, required: true, default: "12 30" },
+        },
+        slot5: {
+            status: { type: Boolean, required: true, default: true },
+            timing: { type: String, required: true, default: "01:00pm-12:30pm"},
+            time: { type: String, required: true, default: "01 00" },
+        },
 
     },
     verified: { type: Boolean, required: true, default: false }
