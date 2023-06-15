@@ -3,6 +3,7 @@ const { connection } = require('./db');
 const cors = require("cors");
 require("dotenv").config();
 const { userRouter } = require("./routes/user.router");
+const { bookrouter } = require("./routes/booking.router");
 
 
 
@@ -15,7 +16,7 @@ app.use(cors());
 
 
 app.use("/user", userRouter);
-
+app.use("/book", bookrouter);
 
 app.listen(process.env.PORT || 4900, async () => {
   try {
