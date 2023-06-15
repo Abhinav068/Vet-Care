@@ -68,15 +68,16 @@ function getCards(ele){
 
                 <div>
 
-                    <img src="https://www.wealthmanagement.com/sites/wealthmanagement.com/files/veterinary-clinic.jpg" alt="Clinic">
+                    <img src="${ele.image}" alt="Clinic Image">
 
                 </div>
 
-                <p>Name : ${ele}</p>
+                <p>Name : ${ele.name}</p>
 
-                <p>Address : ${ele}</p>
+                <p>Address : ${ele.address}</p>
 
-                <p>Opening Time : ${ele}</p>
+                <p>Opening Time : ${ele.opensAt}</p>
+                <p>Closing Time : ${ele.closesAt}</p>
 
             </div> 
             
@@ -96,5 +97,25 @@ function handleClinicClick(id){
 }
 
 
+// clinic schema
+
+// name:"clinic 2"
+// img:url
+// address:"UttarPradesh"
+// opensAt:"10am"
+// closesAt:"6pm"
+// doctors:[1,2,3,4,5,6,7,8,9]
 
 
+// doctors schema
+
+
+//_id
+// name:"Dr Def"
+// age:"34"
+// available:"true"
+// email:"abc@gmail.com"
+// phoneNo:"987654321"
+// role:"doctor"
+// slots:{ slot1 : { timing:, status: } }
+// verified :false
