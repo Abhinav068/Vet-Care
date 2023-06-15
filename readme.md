@@ -10,6 +10,8 @@ user={
 clinic={
     name,
     address,
+    opensat,
+    closesat,
     doctors:[doctorid1,docid2]
 }
 
@@ -33,4 +35,4 @@ Bookings:{
 
 usersprofile 
 
-doctor's profile
+doctor's profile 
