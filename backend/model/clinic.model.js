@@ -5,9 +5,9 @@ const clinicmodel = model('clinic', new Schema({
     address: { type: String },
     opensAt: { type: String },
     closesAt: { type: String },
-    doctors: [
-        { type: ObjectId }
-    ]
+    // doctors: [
+    //     { type: ObjectId }
+    // ]
 }))
 
 
