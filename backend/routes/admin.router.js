@@ -15,7 +15,6 @@ adminrouter.post('/addclinic', async (req, res) => {
     const { name, address, opensAt, closesAt } = req.body;
     const clinic = new clinicmodel({ name, address, opensAt, closesAt });
     let result = await clinic.save();
-    console.log(result);
     res.status(200).send({ msg: 'clinic sucessfully added' });
   } catch (error) {
     console.log(error);
@@ -26,12 +25,30 @@ adminrouter.post('/addclinic', async (req, res) => {
 
 adminrouter.post('/adddoctor/:clinicid', async (req, res) => {
   try {
-    const { name, age, email, phoneNo } = req.body;
-    let doctor = new doctormodel({ name, age, email, phoneNo });
+    const { name, age, email, phoneNo, clinicId } = req.body;
+    let doctor = new doctormodel({ name, age, email, phoneNo, clinicId });
 
     let result = await doctor.save();
-    console.log(result);
+  
     res.status(200).send({ result });
+  } catch (error) {
+    console.log(error);
+    res.status(404).send({ error });
+  }
+})
+
+adminrouter.get('/getdoctors/:clinicid', async (req, res) => {
+  try {
+    const { clinicid } = req.params;
+    let doctors= await doctormodel.aggregate([
+      {
+        '$match': {
+          'clinicId': clinicid
+        }
+      }
+    ]);
+
+    res.status(200).send({ doctors });
   } catch (error) {
     console.log(error);
     res.status(404).send({ error });
