@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="icon" href="/Vetcare.png">
+    <style>
+        li{
+    list-style: none;
+}
+#navbar{
+    background-color: rgb(0, 183, 255);
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    width:100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+#nav-cont{
+    width:84%;
+    margin:auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+    font-weight: 300;
+}
+#hamb{
+    display: none;
+}
+#nav-logo{
+    width:18%;
+}
+#nav-logo:hover{
+    cursor: pointer;
+}
+#nav-img{
+    width:100%;
+    height:3.5rem;
+}
+#nav-img>img{
+    width:100%;
+    height:3.5rem;
+    object-fit: contain;
+    transition: transform .2s;
+}
+#nav-img>img:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+#nav-menu{
+    display: flex;
+    width:45%;
+    align-items: center;
+    justify-content: space-between;
+}
+#nav-menu>li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+#nav-menu a{
+    text-decoration: none;
+    color:white;
+}
+#nav-user-details{
+    width:15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#nav-user-details>button{
+    border:1px solid white;
+    background-color: white;
+    color:rgb(0, 183, 255);
+    font-weight: bold;
+    padding:5px 10px;
+    border-radius: 5px;
+    transition: transform .2s;
+}
+#nav-user-details>button:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+
+.mid-section {
+    /* border: 2px solid red; */
+    width: 90%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background-color: #164994!important;
+    color: #fff;
+    margin-top: 100px;
+    margin: 100px auto;
+    height: 70vh;
+}
+.mid-section .left {
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.mid-section .right {
+    width: 45%;
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.mid-section .right p {
+    font-family: Avenir LT Pro,sans-serif;
+    color: #fff;
+    letter-spacing: 0;
+    line-height: 30px;
+
+}
+.mid-section .left img {
+    width: 80%;
+  
+   /* border: 2px solid red; */
+}
+.parent {
+    display: flex;
+    gap: 20px;
+}
+.mid-section h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+.mid-bottom {
+    width: 90%;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: #164994!important; */
+    color: #2D2B26;
+    /* margin-top: 100px; */
+    margin-top: -70px;
+    
+}
+.mid-bottom h1 {
+    font-size: 50px;
+    line-height: 64px;
+    font-family: Avenir LT Pro,sans-serif;
+    line-height: 64px;
+    letter-spacing: 0;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+
+}
+.mid-bottom p {
+    /* border: 2px solid red; */
+    width: 80%;
+    margin: auto ;
+    /* display: block; */
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: center;
+    font-family: Avenir LT Pro,sans-serif;
+
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+}
+.mid-bottom h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center!important;
+    font-family: Avenir LT Pro,sans-serif;
+    letter-spacing: 0;
+    margin-left: 40px;
+    /* font-weight: 900; */
+}
+.types {
+    display: flex;
+    width: 95%;
+    /* justify-content: center; */
+    align-items: center;
+    margin: auto;
+    gap: 10px;
+    /* border: 2px solid red; */
+    margin-left: 90px;
+    margin-top: 20px;
+}
+.types .left-type {
+    /* border: 2px solid red; */
+    width: 40%;
+    margin: 0 20px;
+}
+.types .right-type {
+    /* border: 2px solid red; */
+    margin: 0 20px;
+    width: 60%;
+}
+.types .left-type img {
+    width: 100%;
+}
+.right-type span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner2 {
+    width: 90%;
+    margin:60px  auto;
+    position: relative;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner2 img {
+    display: block;
+    max-width: 100%;
+}
+
+
+  .banner2 .text-overlay {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .text-overlay h1{
+    font-size: 50px;
+    line-height: 64px;
+    font-family: Avenir LT Pro,sans-serif;
+    line-height: 64px;
+    letter-spacing: 0;
+    font-weight: 800;
+  }
+  .text-overlay p {
+    /* margin-top: 0; */
+    /* margin-bottom: 1rem; */
+    display: block;
+    font-size: 16px;
+    line-height: 54px;
+    font-weight: 900;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    font-family: Avenir LT Pro,sans-serif;
+    /* border: 2px solid red; */
+    width: 85%;
+  }
+
+  #footer{
+    width:99.9%;
+    background-color: rgb(0, 183, 255);
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
+}
+#footer-cont{
+    width:80%;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top:2rem;
+    color:white;
+}
+#footer-left{
+    width:50%;
+    display: flex;
+    justify-content: space-between;
+}
+#footer-left>div>h4{
+    margin-bottom:0.5rem;
+    text-decoration: underline;
+}
+#footer-left>div>p{
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+#footer-left>div>p:hover{
+    color: lightgrey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#footer-right{
+    width:17%;
+}
+#logo-div{
+    width:100%;
+    height:10rem;
+}
+#logo-div>img{
+    width:100%;
+    height:10rem;
+    object-fit: contain;
+}
+#socials{
+    width:75%;
+    margin:1rem auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+    .parent .left,
+    .parent .right {
+      width: 50%;
+      order: 1;
+      text-align: left;
+      display: inline-block;
+    }
+}
+    </style>
+</head>
+<body>
+    <section id="navbar">
+        <!-- script -->
+      </section>
+
+      <div class="mid-section"> 
+        <h1>Our Story</h1>
+        <div class="parent">
+            <div class="left">
+                <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/about/vca_about_ourstory_founders_1280x720.ashx?h=720&iar=0&w=1280&hash=8368A22D2CCFF379656672D555A07C7E" alt="error">
+            </div>
+            <div class="right">
+                <p>Founded in 1986, Vetcare is a family of hometown animal hospitals committed to making a positive impact for pets, people, and our communities. We care about the communities we serve and every pet within them, not just those we see in our hospitals. Every hospital carries a sense of pride for the legacy of excellence they’ve built and the stories of service that are deeply connected to their local communities. Vetcare joined the Mars family in 2017. Together, we are writing a powerful story about what’s next in veterinary care.</p>
+            </div>
+        </div>
+      </div>
+      <div class="mid-bottom">
+        <h1>Our Network</h1>
+        <p>As a national network of hometown hospitals, we provide world-class veterinary medicine by activating our shared expertise and pairing cutting-edge technology, procedures and best practices with deeply compassionate care.</p>
+        <h2>Hospital Types</h2>
+        <div class="types">
+          <div class="left-type">
+            <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/about/vca_about_primarycare_1280x720.ashx?h=720&w=1280&hash=ED181CFE15326956D382A018D6028BEB" alt="error">
+          </div>
+          <div class="right-type">
+            <span style="font-size: 24px; font-weight: bolder;">Primary Care</span>
+            <p>Our primary care teams are the ﬁrst point of contact for all of your pet’s needs, from check-ups to tummy-aches. We understand that no question is too small, which is why we are here to answer them for you, year after year. Our leading care teams get to know both you and your pets, which helps us deliver world-class veterinary medicine with hometown care.</p>
+          </div>
+        </div>
+
+        <div class="types">
+            <div class="left-type">
+              <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/about/vca_about_specialtycare_1280x720.ashx?h=720&w=1280&hash=C9D250438A6BB46F92757C3E4B433B51" alt="error">
+            </div>
+            <div class="right-type">
+              <span style="font-size: 24px; font-weight: bolder;">Specialty Care</span>
+              <p>Our specialists don’t just use best practices, they develop them. Our advanced care teams include oncologists, surgeons, and specialized veterinary professionals who are leaders in their ﬁeld. No matter the situation, you can rest assured that your pet is getting the best care possible. When it matters most, you come to VCA.</p>
+            </div>
+          </div>
+
+          <div class="types">
+            <div class="left-type">
+              <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/about/vca_about_emergencycare_1280x720.ashx?h=720&w=1280&hash=81EB213E0FB65C3167D908DD8BCE0360" alt="error">
+            </div>
+            <div class="right-type">
+              <span style="font-size: 24px; font-weight: bolder;">Emergency Care</span>
+              <p>Our critical and emergency care teams are trained and equipped to handle all kinds of emergencies, including traumatic injury, respiratory emergency, shock, poisoning, serious illness and more. By incorporating advanced techniques from both veterinary and human medicine, our compassionate teams provide the highest standard of emergency and critical care.</p>
+            </div>
+          </div>
+
+          <div class="types">
+            <div class="left-type">
+              <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/about/vca_about_urgentcare_1280x720.ashx?h=720&w=1280&hash=21354EFCBCC3B109A4609CBEDE81A8B3" alt="error">
+            </div>
+            <div class="right-type">
+              <span style="font-size: 24px; font-weight: bolder;">Urgent Care</span>
+              <p>Our urgent care teams are made up of highly trained, deeply collaborative, caring veterinary professionals who help pets with immediate care needs that are not life-threatening. From thoughtfully designed and calming environments to smart technology and transparent communication, our new VCA Animal Hospitals Urgent Care locations provide convenient access to same- or next-day appointments 365 days a year.  </p>
+            </div>
+          </div>
+    </div>
+    <div class="banner2">
+        <img src="https://vcahospitals.com/-/media/2/vca/images/aboutvca/1660x600_ourleadership.ashx?h=600&w=1660&hash=286BD008E801C2A7A697951BD8231027" alt="error">
+        <div class="text-overlay">
+            <h1>Our Leadership</h1>
+            <p><span>We take our reputation as the leader in veterinary medicine seriously. Every day, our talented teams across the country are not only practicing world-class medicine, we are setting a new standard of care.</span></p>
+          </div>
+    </div>
+
+    <section id="footer">
+        <!-- script -->
+    </section>
+</body>
+</html>
+
+<script>
+
+document.querySelector("#navbar").innerHTML = `
+<div id="nav-cont">
+    <div id="hamb">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-logo">
+        <div id="nav-img">
+            <img alt="Logo" src="/Vetcare.png"/>
+        </div>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-menu">
+        <li id="book-app"></li>
+        <li id="find-doc"></li>
+        <li></li>
+        <li></li>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
+    </div>
+</div>
+`
+
+document.querySelector("#footer").innerHTML=`
+<div id="footer-cont">
+    <div data-aos="fade-right" data-aos-duration="1000" id="footer-left">
+        <div>
+            <h4>VetCare</h4>
+            <p>About</p>
+            <p>Blog</p>
+            <p>Careers</p>
+            <p>Contact Us</p>
+        </div>
+        <div>
+            <h4>For Pets</h4>
+            <p>Search for doctors</p>
+            <p>Book an appointment</p>
+            <br>
+            <h4>For Doctors</h4>
+            <p>VetCare Profile</p>
+        </div>
+        <div>
+            <h4>More</h4>
+            <p>Help</p>
+            <p>Privacy Policy</p>
+            <p>Terms & Conditions</p>
+            <p>Heathcare Directory</p>
+        </div>
+    </div>
+    <div data-aos="fade-left" data-aos-duration="1000" id="footer-right">
+        <div id="logo-div">
+            <img alt="logo" src="/Vetcare.png"/>
+        </div>
+    </div>
+</div>
+`
+</script>
