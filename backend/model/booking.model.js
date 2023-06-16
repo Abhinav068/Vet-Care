@@ -1,16 +1,16 @@
 const { model, Schema } = require('mongoose');
-const { ObjectId } = mongoose.Schema.Types;
-const Appointmentmodel = model('clinic', new Schema({
+const { ObjectId } = Schema.Types;
+const Appointmentmodel = model('appointment', new Schema({
     doctorsid: { type: ObjectId, required: true },
     userid: { type: ObjectId, required: true },
     status: {
-        code: { type: Number, default: 1, enum: [0, 1, 2] },
+        code: { type: Number, default: 1, enum: [1, 2, 3] },
         name: { type: String, default: "upcoming", enum: ["cancelled", "upcoming", "closed"] },
     },
     petcategory: { type: String, required: true },
     bookingdate: { type: Date, required: true },
     appointmentdate: { type: Date, required: true },
-    slotNo: { type: Number, required: true },
+    slotNo: { type: String, required: true },
 }))
 
 
@@ -24,9 +24,9 @@ module.exports = { Appointmentmodel };
 //         "name": "upcoming"
 //     },
 //     "petcategory": "Dog",
-//     "date": "12-09-2023",
-//     "time": "2pm-2:30pm",
-//     "slotNo": 4
+//     "bookingdate": "12-09-2023",
+//     "appointmentdate": "2017-02-09T03:35:02.055",
+//     "slotNo": "4"
 // }
 
 
