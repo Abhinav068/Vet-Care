@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="/Vetcare.png">
+    <style>
+        li{
+    list-style: none;
+}
+#navbar{
+    background-color: rgb(0, 183, 255);
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    width:100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+#nav-cont{
+    width:84%;
+    margin:auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+    font-weight: 300;
+}
+#hamb{
+    display: none;
+}
+#nav-logo{
+    width:18%;
+}
+#nav-logo:hover{
+    cursor: pointer;
+}
+#nav-img{
+    width:100%;
+    height:3.5rem;
+}
+#nav-img>img{
+    width:100%;
+    height:3.5rem;
+    object-fit: contain;
+    transition: transform .2s;
+}
+#nav-img>img:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+#nav-menu{
+    display: flex;
+    width:45%;
+    align-items: center;
+    justify-content: space-between;
+}
+#nav-menu>li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+#nav-menu a{
+    text-decoration: none;
+    color:white;
+}
+#nav-user-details{
+    width:15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#nav-user-details>button{
+    border:1px solid white;
+    background-color: white;
+    color:rgb(0, 183, 255);
+    font-weight: bold;
+    padding:5px 10px;
+    border-radius: 5px;
+    transition: transform .2s;
+}
+#nav-user-details>button:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+
+#footer{
+    width:99.9%;
+    background-color: rgb(0, 183, 255);
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
+}
+#footer-cont{
+    width:80%;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top:2rem;
+    color:white;
+}
+#footer-left{
+    width:50%;
+    display: flex;
+    justify-content: space-between;
+}
+#footer-left>div>h4{
+    margin-bottom:0.5rem;
+    text-decoration: underline;
+}
+#footer-left>div>p{
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+#footer-left>div>p:hover{
+    color: lightgrey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#footer-right{
+    width:17%;
+}
+#logo-div{
+    width:100%;
+    height:10rem;
+}
+#logo-div>img{
+    width:100%;
+    height:10rem;
+    object-fit: contain;
+}
+#socials{
+    width:75%;
+    margin:1rem auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+.image {
+   margin-top: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.main-section {
+    /* border: 2px solid red; */
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+}
+.main-section .left {
+    /* border: 2px solid red; */
+    width: 50%;
+}
+.main-section .left p {
+    font-family: Avenir LT Pro,sans-serif;
+    color: #2d2b26;
+    letter-spacing: 0;
+    line-height: 30px;
+    justify-content: right;
+}
+.main-section .right {
+    /* border: 2px solid red; */
+    width: 40%;
+    border-radius: 10px;
+    background-color: #3ec4e4!important;
+}
+.left h2 {
+    font-weight: 600;
+    font-family: Avenir LT Pro,sans-serif;
+    letter-spacing: 0;
+    line-height: 48px;
+    font-size: 2.24rem;
+}
+
+form {
+    font-family: Avenir LT Pro,sans-serif;
+    color: #2d2b26;
+    letter-spacing: 0;
+    line-height: 30px;
+}
+.card-body .mb-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+.card-body .mb-3 input{
+    width: 80%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+.card-body .para p{
+    display: flex;
+    text-align: center!important;
+    margin-left: 30px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* border: 2px solid red; */
+
+}
+.reach p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.card-body .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-body .button button{
+    cursor: pointer;
+    width: 186px; 
+    padding: 16px 20px;
+    background-color: #164994;
+    border: 1px solid #164994;
+    color: #fff;
+    border-radius: 50px;
+    letter-spacing: .5px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+   
+}
+.card {
+    /* border: 2px solid red; */
+    margin: 25px auto;
+
+}
+    </style>
+</head>
+<body>
+    <section id="navbar">
+        <!-- script -->
+    </section>
+
+    <div class="image">
+        <img src="https://vcahospitals.com/-/media/2/vca/images/contact-us/contact_us.ashx?h=350&w=1440&hash=FF6A36CEC0FACA3A915120FEABD66EF8" alt="error">
+    </div>
+
+    <div class="main-section">
+            <div class="left">
+                <h2>Get In Touch</h2>
+                <div class="reach">
+                    <p>You can reach us by mail at our Indian office.</p>
+                    <p>Vetcare Animal Hospitals</p>
+                    <p>12401 West Olympic Blvd.</p>
+                    <p>Mumbai. 400001</p>
+                </div>
+
+                <div class="reach-by-phone">
+                    <p>You can reach us by phone or fax at:</p>
+                    <p>Tel: 1-310-571-6500</p>
+                    <p>Toll Free: 1-800-VCA-PETS</p>
+                    <p>Fax: 1-310-571-6700</p>
+                </div>
+                <div class="send-message">
+                    <p>Or you can send us a message using the form here. Please note that our Contact Us team is not able to address medical questions, book appointments or manage food or prescription orders.</p>
+                </div>
+               <div class="medical-services">
+                <p>For all questions regarding veterinary medical services, your pet’s health or if your pet is experiencing a medical situation, please use our Hospital Locator to find your nearest VCA animal hospital or you can call 1-800-VCA-PETS.</p>
+               </div>
+               <div class="careclub">
+                <p>For all questions regarding CareClub plans, please contact 1-800-743-8838.</p>
+               </div>
+               <div class="member">
+                <p>If you are a member of the media, please contact MediaRelations@vca.com.
+                    The personal data submitted via this form will be retained only for the purpose of responding to your question or concern and will not be used for marketing purposes.
+                </p>
+                <p>You must be 13 years or older to submit this form. </p>
+               </div>
+
+            </div>
+            <div class="right">
+
+                <div>
+                    <form >
+                      <div class="card" style="width: 31rem;">
+                        <div class="card-body">
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput2" placeholder="Last Name">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput3" placeholder="E-mail">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput4" placeholder="Phone Number">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput4" placeholder="Preferred Contact Method">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput4" placeholder="City">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput4" placeholder="State">
+                          </div>
+                          <div class="mb-3" style="padding: 1%; ">
+                            <input required="true" class="form-control" id="exampleFormControlInput4" placeholder="Message">
+                          </div>
+                          <div class="para">
+                            <p>We respect your privacy and will not share your information with other parties. For more information, see the Privacy Policy.</p>
+                          </div>
+                        <div class="button">
+                            <button>SEND MESSAGE</button>
+                        </div>
+                        </div>
+                    </div>
+                    </form>
+                  </div>
+            </div>
+    </div>
+
+
+    <section id="footer">
+        <!-- script -->
+    </section>
+</body>
+</html>
+
+<script>
+    document.querySelector("#navbar").innerHTML = `
+<div id="nav-cont">
+    <div id="hamb">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-logo">
+        <div id="nav-img">
+            <img alt="Logo" src="/Vetcare.png"/>
+        </div>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-menu">
+        <li id="book-app"></li>
+        <li id="find-doc"></li>
+        <li></li>
+        <li></li>
+    </div>
+    <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
+    </div>
+</div>
+`
+
+document.querySelector("#footer").innerHTML=`
+<div id="footer-cont">
+    <div data-aos="fade-right" data-aos-duration="1000" id="footer-left">
+        <div>
+            <h4>VetCare</h4>
+            <p>About</p>
+            <p>Blog</p>
+            <p>Careers</p>
+            <p>Contact Us</p>
+        </div>
+        <div>
+            <h4>For Pets</h4>
+            <p>Search for doctors</p>
+            <p>Book an appointment</p>
+            <br>
+            <h4>For Doctors</h4>
+            <p>VetCare Profile</p>
+        </div>
+        <div>
+            <h4>More</h4>
+            <p>Help</p>
+            <p>Privacy Policy</p>
+            <p>Terms & Conditions</p>
+            <p>Heathcare Directory</p>
+        </div>
+    </div>
+    <div data-aos="fade-left" data-aos-duration="1000" id="footer-right">
+        <div id="logo-div">
+            <img alt="logo" src="/Vetcare.png"/>
+        </div>
+    </div>
+</div>
+`
+</script>
