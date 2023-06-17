@@ -460,7 +460,7 @@ li{
       </form>
       <div style="width:100%; margin:auto; margin-bottom: 5%; border:1px solid lightgray; padding:5%;">
         
-        <!-- <a style="display:block" href="https://oauth-vetcare.onrender.com/auth/google"> -->
+        <a style="display:block" href="http://localhost:4900/auth/google">
           <button style="width:100%; background-color: #0b76c6; color:white; border:1px solid #0b76c6; border-radius: 5px; padding:7px 0;"> <i class="fa-brands fa-google"></i> &nbsp;&nbsp; Continue with Google</button>
         </a>
       </div>
@@ -516,7 +516,7 @@ Swal.fire({
             localStorage.setItem("token",data.token);
             localStorage.setItem("userName",data.name);
             Swal.fire("", "Login Successful", "success").then(function() {
-                window.location.href="./book.appointment.html";
+                window.location.href="../index.html";
             });
         }
       } catch (error) {
