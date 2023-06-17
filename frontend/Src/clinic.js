@@ -1,20 +1,25 @@
 // clinic javascript
 
-const clinic_base_Url = ''
+const clinic_base_Url = 'http://localhost:4900'
 
 // check user token then proceed
 
-const token = localStorage.getItem('') || null;
+const token = localStorage.getItem('token') || null;
 
 
 
-if(!token){
-    location.href=''
-}
+// if(!token){
+//     location.href='../View/login.html'
+// }
 
 
 
 const ClinicDiv = document.getElementById('nit_clinic_cards');
+
+
+
+const cd = [{_id:"648b20ef6a29595f07491533",name:"clinic A",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic B",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic C",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic D",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic A",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic B",address:"Lucknow",opensAt:"10am",closesAt:"6pm"}]
+
 
 
 
@@ -23,14 +28,14 @@ fetchClinicData()
 
 function fetchClinicData(){
 
-    fetch(`${clinic_base_Url}`)
+    fetch(`${clinic_base_Url}/book/clinic`)
     .then((res)=>{
-        return res.json()
+        return res.text()
     })
     .then((data)=>{
         console.log(data)
 
-        RenderClinic(data)
+        RenderClinic(cd)
 
     })
     .catch((err)=>{
@@ -68,7 +73,7 @@ function getCards(ele){
 
                 <div>
 
-                    <img src="${ele.image}" alt="Clinic Image">
+                    <img src="https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg" alt="Clinic Image">
 
                 </div>
 
@@ -93,29 +98,27 @@ function handleClinicClick(id){
 
     // move to doctors page
     
-    location.href = ''
+    // location.href = ''
 }
 
 
-// clinic schema
-
-// name:"clinic 2"
-// img:url
-// address:"UttarPradesh"
-// opensAt:"10am"
-// closesAt:"6pm"
-// doctors:[1,2,3,4,5,6,7,8,9]
 
 
-// doctors schema
+function handleSearch(){
+    
+    const data=document.getElementById('clinic_search').value;
+
+    const res = cd.filter((ele)=>{
+        return ele.name.toLowerCase().includes(data.toLowerCase())
+    })
+
+    RenderClinic(res)
+
+    
+}
 
 
-//_id
-// name:"Dr Def"
-// age:"34"
-// available:"true"
-// email:"abc@gmail.com"
-// phoneNo:"987654321"
-// role:"doctor"
-// slots:{ slot1 : { timing:, status: } }
-// verified :false
+
+
+
+

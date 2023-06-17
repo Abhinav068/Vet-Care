@@ -23,6 +23,15 @@ adminrouter.post('/addclinic', async (req, res) => {
 
 })
 
+adminrouter.get('/allclinic', async (req, res) => {
+  try {
+    let allclinic= await clinicmodel.find();
+    res.status(200).send({ allclinic });
+  } catch (error) {
+    res.status(404).send({ error })
+  }
+})
+
 adminrouter.post('/adddoctor/:clinicid', async (req, res) => {
   try {
     const { name, age, email, phoneNo, clinicId } = req.body;
