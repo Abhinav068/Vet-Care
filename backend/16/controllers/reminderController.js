@@ -17,7 +17,7 @@ const sendReminderEmail = (appointment) => {
     from:process.env.EMAIL,
     to: email,
     subject: 'Reminder: Your Upcoming Appointment',
-    text: 'This is a reminder from Vetcare for your upcoming appointment which is shedule in 2 hours. Please be prepared.'
+    text: 'This is a friendly reminder from Vetcare for your upcoming appointment which is scheduled in 2 hours. be prepared. Please arrive at the clinic 10 minutes before your scheduled appointment to allow time for check-in and necessary paperwork.'
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

@@ -146,13 +146,17 @@ userRouter.post("/signin", async (req, res) => {
               { userID: userMobile._id, email: userMobile.email },
               "masai"
             );
+
+            // console.log("1",userMobile._id)
+
             res.send({
               message: "Login Successful",
               token,
+              uid:userMobile._id,
               name: userMobile.first_name,
               last_name: userMobile.last_name,
               email: userMobile.email,
-              mobile: userMobile.mobile,
+              mobile: userMobile.mobile
             });
           } else {
             res.status(500).send({ mag: "Wrong Password" });
@@ -166,13 +170,18 @@ userRouter.post("/signin", async (req, res) => {
             { userID: userEmail._id, email: userEmail.email },
             "masai"
           );
+
+          // console.log("2",userEmail._id)
+
+
           res.send({
             message: "Success",
             token,
+            uid:userEmail._id,
             name: userEmail.first_name,
             last_name: userEmail.last_name,
             email: userEmail.email,
-            mobile: userEmail.mobile,
+            mobile: userEmail.mobile
           });
         } else {
           res.status(500).send({ mag: "Wrong Password" });
