@@ -19,8 +19,8 @@ exports.bookAppointment = async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL, // Replace with your Gmail email address
-        pass: process.env.PASSWORD// Replace with your Gmail password or app-specific password
+        user: process.env.EMAIL, 
+        pass: process.env.PASSWORD
       }
     });
 
