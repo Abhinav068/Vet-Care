@@ -2,478 +2,557 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>SignIn</title>
-  <link rel="icon" href="../../Vetcare.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>SignIn</title>
+    <link rel="icon" href="../../Vetcare.png">
 </head>
 
 <body>
 
-<style>
+    <style>
+        /* ************************************************(NAV BAR)*********************************************** */
 
 
-/* ************************************************(NAV BAR)*********************************************** */
+        li {
+            list-style: none;
+        }
 
+        #navbar {
+            background-color: rgb(0, 183, 255);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
 
-li{
-    list-style: none;
-}
-#navbar{
-    background-color: rgb(0, 183, 255);
-    position: fixed;
-    top:0;
-    z-index: 1000;
-    width:100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-#nav-cont{
-    width:84%;
-    margin:auto;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    color:white;
-    font-weight: 300;
-}
-#hamb{
-    display: none;
-}
-#nav-logo{
-    width:18%;
-}
-#nav-logo:hover{
-    cursor: pointer;
-}
-#nav-img{
-    width:100%;
-    height:3.5rem;
-}
-#nav-img>img{
-    width:100%;
-    height:3.5rem;
-    object-fit: contain;
-    transition: transform .2s;
-}
-#nav-img>img:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-#nav-menu{
-    display: flex;
-    width:45%;
-    align-items: center;
-    justify-content: space-between;
-}
-#nav-menu>li:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-#nav-menu a{
-    text-decoration: none;
-    color:white;
-}
-#nav-user-details{
-    width:15%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#nav-user-details>button{
-    border:1px solid white;
-    background-color: white;
-    color:rgb(0, 183, 255);
-    font-weight: bold;
-    padding:5px 10px;
-    border-radius: 5px;
-    transition: transform .2s;
-}
-#nav-user-details>button:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
+        #nav-cont {
+            width: 84%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-weight: 300;
+        }
 
+        #hamb {
+            display: none;
+        }
 
+        #nav-logo {
+            width: 18%;
+        }
 
-/* ***************************************************(FOOTER)******************************************* */
+        #nav-logo:hover {
+            cursor: pointer;
+        }
 
+        #nav-img {
+            width: 100%;
+            height: 3.5rem;
+        }
 
+        #nav-img>img {
+            width: 100%;
+            height: 3.5rem;
+            object-fit: contain;
+            transition: transform .2s;
+        }
 
+        #nav-img>img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
 
-#footer{
-    width:99.9%;
-    background-color: rgb(0, 183, 255);
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
-}
-#footer-cont{
-    width:80%;
-    margin:auto;
-    display: flex;
-    justify-content: space-between;
-    padding-top:2rem;
-    color:white;
-}
-#footer-left{
-    width:50%;
-    display: flex;
-    justify-content: space-between;
-}
-#footer-left>div>h4{
-    margin-bottom:0.5rem;
-    text-decoration: underline;
-}
-#footer-left>div>p{
-    font-size: 15px;
-    margin-bottom: 3px;
-}
-#footer-left>div>p:hover{
-    color: lightgrey;
-    text-decoration: underline;
-    cursor: pointer;
-}
-#footer-right{
-    width:17%;
-}
-#logo-div{
-    width:100%;
-    height:10rem;
-}
-#logo-div>img{
-    width:100%;
-    height:10rem;
-    object-fit: contain;
-}
-#socials{
-    width:75%;
-    margin:1rem auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-}
+        #nav-menu {
+            display: flex;
+            width: 45%;
+            align-items: center;
+            justify-content: space-between;
+        }
 
+        #nav-menu>li:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
 
-/* ***********************************************(MEDIA QUERY)********************************************** */
+        #nav-menu a {
+            text-decoration: none;
+            color: white;
+        }
 
+        #nav-user-details {
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
 
-@media all and (min-width:1200px){
-    #nav-menu{
-        display: flex;
-    }
-}
-@media all and (min-width:701px) and (max-width:1200px){
-    #nav-menu{
-        width:60%;
-        font-size: 0.7rem;
-    }
-    #nav-user-details{
-        width:6rem;
-    }
-    #nav-user-details>button{
-        font-size: 0.6rem;
-        padding:4px 4px;
-    }
-    #feature-cont{
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 3rem;
-        row-gap: 1rem;
-    }
-    #consult-body{
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 1.5rem;
-        row-gap: 1rem;
-    }
-    #dept-sec>div:nth-child(odd)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:2rem;
-        left:1rem;
-    }
-    #dept-sec>div:nth-child(even)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:2rem;
-        right:1rem;
-    }
-    .dept-body>h1{
-        font-size:1.2rem;
-        margin-bottom: 0.5rem;
-    }
-    .dept-body>p{
-        line-height: 1rem;
-        color:rgb(107, 107, 107);
-        font-size: 0.6rem;
-    }
-    #footer-left{
-        width:60%;
-        display: flex;
-        justify-content: space-between;
-    }
-    #footer-left>div>h4{
-        margin-bottom:0.8rem;
-        text-decoration: underline;
-        font-size: 0.8rem;
-    }
-    #footer-left>div>p{
-        font-size: 0.6rem;
-    }
-    #footer-right{
-        width:20%;
-    }
-    #logo-div{
-        width:100%;
-        height:5rem;
-    }
-    #logo-div>img{
-        width:100%;
-        height:5rem;
-        object-fit: contain;
-    }
-    #socials{
-        width:75%;
-        margin:1rem auto;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    .card-title,.card-text{
-        font-size: 1rem;
-    }
-    .input-grp{
-        width: 50%;
-        margin: auto;
-        margin-top: 3%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #doctors-cont{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap:1.5rem;
-    }
-    .doc-search-bar{
-        margin:auto;
-        width:80%;
-        display: block;
-    }
-    #filter-approval{
-        width:100%;
-    }
-    #doc-sf{
-        margin-top:1rem;
-        width:100%;
-    }
-}
+        #nav-user-details>button {
+            border: 1px solid white;
+            background-color: white;
+            color: rgb(0, 183, 255);
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: transform .2s;
+        }
 
-@media all and (min-width:300px) and (max-width:700px){
-    #hamb{
-        display: block;
-    }
-    #nav-menu{
-        border-radius: 5px;
-        position: absolute;
-        left:0;
-        top:80%;
-        width:45%;
-        text-align: center;
-        display:none;
-        background-color: rgb(0, 183, 255);
-    }
-    #nav-menu>li{
-        margin:0.5rem auto;
-        border-bottom:1px solid white;
-    }
-    #nav-user-details{
-        width:6rem;
-    }
-    #nav-user-details>button{
-        font-size: 0.6rem;
-        padding:4px 4px;
-    }
-    #feature-cont{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 3rem;
-        row-gap: 1rem;
-    }
-    #consult-body{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 1.5rem;
-        row-gap: 1rem;
-    }
-    #dept-sec>div:nth-child(odd)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:1.5rem;
-        left:1rem;
-    }
-    #dept-sec>div:nth-child(even)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:1.5rem;
-        right:1rem;
-    }
-    .dept-body>h1{
-        font-size:0.6rem;
-        margin-bottom: 0.2rem;
-    }
-    .dept-body>p{
-        line-height: 0.5rem;
-        color:rgb(107, 107, 107);
-        font-size: 0.3rem;
-    }
-    #footer-left{
-        width:70%;
-        display: flex;
-        justify-content: space-between;
-    }
-    #footer-left>div>h4{
-        margin-bottom:0.5rem;
-        text-decoration: underline;
-        font-size: 0.5rem;
-    }
-    #footer-left>div>p{
-        font-size: 0.5rem;
-    }
-    #footer-right{
-        width:20%;
-    }
-    #logo-div{
-        width:100%;
-        height:5rem;
-    }
-    #logo-div>img{
-        width:100%;
-        height:5rem;
-        object-fit: contain;
-    }
-    #socials{
-        width:75%;
-        margin:1rem auto;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    .card-img-overlay>div{
-        margin: 10px;
-    }
-    .input-grp{
-        width: 65%;
-        margin: auto;
-        margin-top: 3%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.5rem;
-    }
-    .card-title,.card-text{
-        font-size: 0.5rem;
-    }
-    .sb-top{
-        display: none;
-    }
-    .sb-bottom{
-        padding-top:1rem;
-    }
-    .card-group{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-    }
-    .slides-img,.records-banner img,.trust-banner img,.sb-top-img{
-        display: none;
-    }
-    #doctors-cont{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap:1.5rem;
-    }
-    .doc-search-bar{
-        margin:auto;
-        width:80%;
-        display: block;
-    }
-    #filter-approval{
-        width:100%;
-    }
-    #doc-sf{
-        margin-top:1rem;
-        width:100%;
-    }
-}
+        #nav-user-details>button:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
 
 
 
-/* ********************************************************************************************************* */
+        /* ***************************************************(FOOTER)******************************************* */
 
 
 
-</style>
 
-  <section id="navbar">
-    <!-- script -->
-  </section>
+        #footer {
+            width: 99.9%;
+            background-color: rgb(0, 183, 255);
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
 
-  <div style="margin-top: 6.5rem;">
-    <ul class="nav nav-tabs" style="margin-left: 50%;">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./signup.html">Register</a>
-      </li>
-    </ul>
-  </div>
+        #footer-cont {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 2rem;
+            color: white;
+        }
 
-  <div style="width:60%;display: flex; margin:3rem auto;">
-    <div>
-      <img style="width: 90%;" src="https://static.vecteezy.com/system/resources/previews/005/447/153/non_2x/veterinary-clinic-doctor-examining-vaccination-and-health-care-for-pets-like-dogs-and-cats-in-flat-cartoon-background-illustration-for-poster-or-banner-vector.jpg" alt="filler">
+        #footer-left {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #footer-left>div>h4 {
+            margin-bottom: 0.5rem;
+            text-decoration: underline;
+        }
+
+        #footer-left>div>p {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        #footer-left>div>p:hover {
+            color: lightgrey;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #footer-right {
+            width: 17%;
+        }
+
+        #logo-div {
+            width: 100%;
+            height: 10rem;
+        }
+
+        #logo-div>img {
+            width: 100%;
+            height: 10rem;
+            object-fit: contain;
+        }
+
+        #socials {
+            width: 75%;
+            margin: 1rem auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+
+
+        /* ***********************************************(MEDIA QUERY)********************************************** */
+
+
+        @media all and (min-width:1200px) {
+            #nav-menu {
+                display: flex;
+            }
+        }
+
+        @media all and (min-width:701px) and (max-width:1200px) {
+            #nav-menu {
+                width: 60%;
+                font-size: 0.7rem;
+            }
+
+            #nav-user-details {
+                width: 6rem;
+            }
+
+            #nav-user-details>button {
+                font-size: 0.6rem;
+                padding: 4px 4px;
+            }
+
+            #feature-cont {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 3rem;
+                row-gap: 1rem;
+            }
+
+            #consult-body {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 1.5rem;
+                row-gap: 1rem;
+            }
+
+            #dept-sec>div:nth-child(odd)>.dept-body {
+                width: 50%;
+                position: absolute;
+                top: 2rem;
+                left: 1rem;
+            }
+
+            #dept-sec>div:nth-child(even)>.dept-body {
+                width: 50%;
+                position: absolute;
+                top: 2rem;
+                right: 1rem;
+            }
+
+            .dept-body>h1 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .dept-body>p {
+                line-height: 1rem;
+                color: rgb(107, 107, 107);
+                font-size: 0.6rem;
+            }
+
+            #footer-left {
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #footer-left>div>h4 {
+                margin-bottom: 0.8rem;
+                text-decoration: underline;
+                font-size: 0.8rem;
+            }
+
+            #footer-left>div>p {
+                font-size: 0.6rem;
+            }
+
+            #footer-right {
+                width: 20%;
+            }
+
+            #logo-div {
+                width: 100%;
+                height: 5rem;
+            }
+
+            #logo-div>img {
+                width: 100%;
+                height: 5rem;
+                object-fit: contain;
+            }
+
+            #socials {
+                width: 75%;
+                margin: 1rem auto;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            .card-title,
+            .card-text {
+                font-size: 1rem;
+            }
+
+            .input-grp {
+                width: 50%;
+                margin: auto;
+                margin-top: 3%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #doctors-cont {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1.5rem;
+            }
+
+            .doc-search-bar {
+                margin: auto;
+                width: 80%;
+                display: block;
+            }
+
+            #filter-approval {
+                width: 100%;
+            }
+
+            #doc-sf {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+
+        @media all and (min-width:300px) and (max-width:700px) {
+            #hamb {
+                display: block;
+            }
+
+            #nav-menu {
+                border-radius: 5px;
+                position: absolute;
+                left: 0;
+                top: 80%;
+                width: 45%;
+                text-align: center;
+                display: none;
+                background-color: rgb(0, 183, 255);
+            }
+
+            #nav-menu>li {
+                margin: 0.5rem auto;
+                border-bottom: 1px solid white;
+            }
+
+            #nav-user-details {
+                width: 6rem;
+            }
+
+            #nav-user-details>button {
+                font-size: 0.6rem;
+                padding: 4px 4px;
+            }
+
+            #feature-cont {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 3rem;
+                row-gap: 1rem;
+            }
+
+            #consult-body {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1.5rem;
+                row-gap: 1rem;
+            }
+
+            #dept-sec>div:nth-child(odd)>.dept-body {
+                width: 50%;
+                position: absolute;
+                top: 1.5rem;
+                left: 1rem;
+            }
+
+            #dept-sec>div:nth-child(even)>.dept-body {
+                width: 50%;
+                position: absolute;
+                top: 1.5rem;
+                right: 1rem;
+            }
+
+            .dept-body>h1 {
+                font-size: 0.6rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .dept-body>p {
+                line-height: 0.5rem;
+                color: rgb(107, 107, 107);
+                font-size: 0.3rem;
+            }
+
+            #footer-left {
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            #footer-left>div>h4 {
+                margin-bottom: 0.5rem;
+                text-decoration: underline;
+                font-size: 0.5rem;
+            }
+
+            #footer-left>div>p {
+                font-size: 0.5rem;
+            }
+
+            #footer-right {
+                width: 20%;
+            }
+
+            #logo-div {
+                width: 100%;
+                height: 5rem;
+            }
+
+            #logo-div>img {
+                width: 100%;
+                height: 5rem;
+                object-fit: contain;
+            }
+
+            #socials {
+                width: 75%;
+                margin: 1rem auto;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            .card-img-overlay>div {
+                margin: 10px;
+            }
+
+            .input-grp {
+                width: 65%;
+                margin: auto;
+                margin-top: 3%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.5rem;
+            }
+
+            .card-title,
+            .card-text {
+                font-size: 0.5rem;
+            }
+
+            .sb-top {
+                display: none;
+            }
+
+            .sb-bottom {
+                padding-top: 1rem;
+            }
+
+            .card-group {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .slides-img,
+            .records-banner img,
+            .trust-banner img,
+            .sb-top-img {
+                display: none;
+            }
+
+            #doctors-cont {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1.5rem;
+            }
+
+            .doc-search-bar {
+                margin: auto;
+                width: 80%;
+                display: block;
+            }
+
+            #filter-approval {
+                width: 100%;
+            }
+
+            #doc-sf {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+
+
+
+        /* ********************************************************************************************************* */
+    </style>
+
+    <section id="navbar">
+        <!-- script -->
+    </section>
+
+    <div style="margin-top: 6.5rem;">
+        <ul class="nav nav-tabs" style="margin-left: 50%;">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./signup.html">Register</a>
+            </li>
+        </ul>
     </div>
-    <div>
-      <form>
-        <div class="card" style="width: 29rem; " id="form">
-          <div class="card-body">
-            <div class="mb-3" style="padding: 2%;">
-              <label for="exampleFormControlInput1" class="form-label">Mobile Number/Email ID</label>
-              <input class="form-control" id="exampleFormControlInput1" placeholder="Enter Registered Mobile Number/Email ID">
-            </div>
-            <div class="mb-3" style="padding: 2%;">
-              <label for="exampleFormControlInput1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="Enter Registered Password">
-            </div>
-        
-          </div>
-          <button type="submit" class="btn btn-info"
-            style="color: white; margin:auto;margin-bottom: 5%; width:90%;">Login
-          </button>
+
+    <div style="width:60%;display: flex; margin:3rem auto;">
+        <div>
+            <img style="width: 90%;"
+                src="https://static.vecteezy.com/system/resources/previews/005/447/153/non_2x/veterinary-clinic-doctor-examining-vaccination-and-health-care-for-pets-like-dogs-and-cats-in-flat-cartoon-background-illustration-for-poster-or-banner-vector.jpg"
+                alt="filler">
         </div>
-      </form>
-      <div style="width:100%; margin:auto; margin-bottom: 5%; border:1px solid lightgray; padding:5%;">
-        
-        <!-- <a style="display:block" href="https://oauth-vetcare.onrender.com/auth/google"> -->
-          <button style="width:100%; background-color: #0b76c6; color:white; border:1px solid #0b76c6; border-radius: 5px; padding:7px 0;"> <i class="fa-brands fa-google"></i> &nbsp;&nbsp; Continue with Google</button>
-        </a>
-      </div>
+        <div>
+            <form>
+                <div class="card" style="width: 29rem; " id="form">
+                    <div class="card-body">
+                        <div class="mb-3" style="padding: 2%;">
+                            <label for="exampleFormControlInput1" class="form-label">Mobile Number/Email ID</label>
+                            <input class="form-control" id="exampleFormControlInput1"
+                                placeholder="Enter Registered Mobile Number/Email ID">
+                        </div>
+                        <div class="mb-3" style="padding: 2%;">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleFormControlInput2"
+                                placeholder="Enter Registered Password">
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-info"
+                        style="color: white; margin:auto;margin-bottom: 5%; width:90%;">Login
+                    </button>
+                </div>
+            </form>
+            <div style="width:100%; margin:auto; margin-bottom: 5%; border:1px solid lightgray; padding:5%;">
+
+                <!-- <a style="display:block" href="https://oauth-vetcare.onrender.com/auth/google"> -->
+                <button
+                    style="width:100%; background-color: #0b76c6; color:white; border:1px solid #0b76c6; border-radius: 5px; padding:7px 0;">
+                    <i class="fa-brands fa-google"></i> &nbsp;&nbsp; Continue with Google</button>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <section id="footer">
-    <!-- script -->
-  </section>
+    <section id="footer">
+        <!-- script -->
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 
@@ -484,52 +563,54 @@ li{
 
 <script>
 
-//***********************************************(SIGNIN)**************************************************
+    //***********************************************(SIGNIN)**************************************************
 
 
-let form =document.querySelector("form");
-form.addEventListener("submit",async (e)=>{
-    e.preventDefault();
-    let obj={
-        payload:form.exampleFormControlInput1.value,
-        password:form.exampleFormControlInput2.value
-    }
-    try {
-        let res=await fetch("http://localhost:4900/user/signin",{
-            method:"POST",
-            headers:{
-                'Content-type':'application/json'
-            },
-            body:JSON.stringify(obj)
-        })
-        let data=await res.json();
-        console.log(data);
-        if(!data || data.mag || data.msg=="Error in Login" || data.msg=="User not Found"){
-           
-Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Something went wrong!',
-  footer: '<a href="">Why do I have this issue?</a>'
-})
-        }else{
-            localStorage.setItem("token",data.token);
-            localStorage.setItem("userName",data.name);
-            Swal.fire("", "Login Successful", "success").then(function() {
-                window.location.href="./book.appointment.html";
-            });
+    let form = document.querySelector("form");
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        let obj = {
+            payload: form.exampleFormControlInput1.value,
+            password: form.exampleFormControlInput2.value
         }
-      } catch (error) {
-        console.log(error);
-      }
-})
+        try {
+            let res = await fetch("http://localhost:4900/user/signin", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            })
+            let data = await res.json();
+            console.log(data);
+            if (!data || data.mag || data.msg == "Error in Login" || data.msg == "User not Found") {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+            } else {
+                console.log("data check", data)
+                localStorage.setItem("token", data.token);
+                localStorage.setItem('userID', data.uid)
+                localStorage.setItem("userName", data.name);
+                Swal.fire("", "Login Successful", "success").then(function () {
+                    window.location.href = "./book.appointment.html";
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    })
 
 
 
-// *****************************************(NAV BAR)*****************************************************
+    // *****************************************(NAV BAR)*****************************************************
 
 
-document.querySelector("#navbar").innerHTML = `
+    document.querySelector("#navbar").innerHTML = `
 <div id="nav-cont">
     <div id="hamb">
         <i class="fa-solid fa-bars"></i>
@@ -552,80 +633,80 @@ document.querySelector("#navbar").innerHTML = `
 </div>
 `
 
-{/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */}
+    {/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */ }
 
-const logoBtn=document.getElementById("nav-logo");
-const book_app=document.getElementById("book-app");
-const find_doc=document.getElementById("find-doc");
+    const logoBtn = document.getElementById("nav-logo");
+    const book_app = document.getElementById("book-app");
+    const find_doc = document.getElementById("find-doc");
 
-let loginbtn=document.getElementById("nav-login");
-let signupbtn=document.getElementById("nav-reg");
+    let loginbtn = document.getElementById("nav-login");
+    let signupbtn = document.getElementById("nav-reg");
 
-if(localStorage.getItem("token")){
-    loginbtn.innerText=localStorage.getItem("userName");
-    signupbtn.innerText="Log Out";
-}else{
-    loginbtn.innerText="Login";
-    signupbtn.innerText="Signup";
-}
-
-loginbtn.addEventListener("click",(e)=>{
-    if(e.target.innerText=="Login"){
-        window.location.href="./login.html";
+    if (localStorage.getItem("token")) {
+        loginbtn.innerText = localStorage.getItem("userName");
+        signupbtn.innerText = "Log Out";
+    } else {
+        loginbtn.innerText = "Login";
+        signupbtn.innerText = "Signup";
     }
-})
 
-signupbtn.addEventListener("click",(e)=>{
-    if(e.target.innerText=="Signup"){
-        window.location.href="./signup.html";
-    }else{
-        (async function(){
-            try{
-                let res=await fetch("http://localhost:4900/user/logout",{
-                    headers:{
-                        'Content-type':'application/json',
-                        'Authorization':`${localStorage.getItem("token")}`
+    loginbtn.addEventListener("click", (e) => {
+        if (e.target.innerText == "Login") {
+            window.location.href = "./login.html";
+        }
+    })
+
+    signupbtn.addEventListener("click", (e) => {
+        if (e.target.innerText == "Signup") {
+            window.location.href = "./signup.html";
+        } else {
+            (async function () {
+                try {
+                    let res = await fetch("http://localhost:4900/user/logout", {
+                        headers: {
+                            'Content-type': 'application/json',
+                            'Authorization': `${localStorage.getItem("token")}`
+                        }
+                    });
+                    let data = await res.json();
+                    if (data) {
+                        localStorage.clear();
+                        swal("", "You are successfully logged out!", "success").then(function () {
+                            window.location.href = "./index.html";
+                        });
                     }
-                });
-                let data=await res.json();
-                if(data){
-                    localStorage.clear();
-                    swal("", "You are successfully logged out!", "success").then(function() {
-                        window.location.href="./index.html";
-                      });
+                } catch (err) {
+                    console.log(err);
                 }
-            }catch(err){
-                console.log(err);
-            }         
-        })();
-    }
-})
+            })();
+        }
+    })
 
-logoBtn.addEventListener("click",(e)=>{
-    window.location.href="../index.html";
-})
+    logoBtn.addEventListener("click", (e) => {
+        window.location.href = "../index.html";
+    })
 
 
-const hamburger=document.getElementById("hamb");
-const navbar_menu=document.getElementById("nav-menu");
+    const hamburger = document.getElementById("hamb");
+    const navbar_menu = document.getElementById("nav-menu");
 
-hamburger.addEventListener("click", (e)=>{
-    if(navbar_menu.style.display=="none"){
-        navbar_menu.style.display="block";
-    }else{
-        navbar_menu.style.display="none";
-    }
-})
+    hamburger.addEventListener("click", (e) => {
+        if (navbar_menu.style.display == "none") {
+            navbar_menu.style.display = "block";
+        } else {
+            navbar_menu.style.display = "none";
+        }
+    })
 
 
 
 
-//*********************************************(FOOTER)******************************************************
+    //*********************************************(FOOTER)******************************************************
 
 
 
 
-document.querySelector("#footer").innerHTML=`
+    document.querySelector("#footer").innerHTML = `
 <div id="footer-cont">
     <div data-aos="fade-right" data-aos-duration="1000" id="footer-left">
         <div>

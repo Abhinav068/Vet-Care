@@ -8,6 +8,7 @@ body{
     border:1px solid red;
     margin: 80px auto;
     width: 90%;
+    padding: 7px;
 }
 
 
@@ -25,13 +26,15 @@ body{
     width: 30%;
     border: none;
     border-bottom: 1px solid black;
+    border-top: 0.5px solid black;
     border-radius: 15px;
     height: 30px;
+    margin-bottom: 25px;
 }
 
 
 #nit_clinic_cards{
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -40,11 +43,24 @@ body{
 }
 
 
+.nitesh-cli-card{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
 .nitesh-cli-card > div:nth-child(1) > img{
     width: 100%;
+   
+}
+
+
+.nitesh-cli-card > div:nth-child(1) > img:hover{
+    transform: scale(1.10);
+    transition: 0.6s;
 }
 
 
 .nitesh-cli-card p{
     text-align: center;
 }
+
