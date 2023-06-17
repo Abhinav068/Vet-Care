@@ -5,9 +5,10 @@ body{
 
 
 #nitesh_doctors{
-    border:1px solid red;
+    /* border:1px solid red; */
     margin: 80px auto;
     width: 90%;
+    padding: 7px;
 }
 
 
@@ -25,46 +26,81 @@ body{
     width: 30%;
     border: none;
     border-bottom: 1px solid black;
+    border-top: 0.5px solid black;
     border-radius: 15px;
     height: 30px;
 }
 
 
 #nit_doctor_cards{
-    border: 2px solid green;
-    width: 100%;
+    /* border: 2px solid green; */
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(1,1fr);
     gap: 15px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 .nit-doc-card{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 15px;
+    grid-template-columns:repeat(3,1fr);
+    gap: 10px 75px;
     margin: auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   
 }
+
+
+
+
+.nit-doc-card > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: start;
+
+}
+
+
+.nit-doc-card > div:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .nit-doc-card img{
     width: 100%;
 }
 
-.nit-doc-card  p{
+.nit-doc-card img:hover{
+    transform: scale(1.20);
+    transition: 0.6s;
+}
 
-    text-align: center;
 
+
+.nit-doc-card > div:nth-child(2){
+    text-align: start;
 }
 
 
 .nit-doc-card button{
-    width: 150px;
+    width: 180px;
     padding: 7px;
     border: none;
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    margin: auto;
+    border-radius: 5px;
 }
 
+.nit-doc-card button:hover{
+    background: transparent;
+    border: 1px solid;
+    color: #007bff;
+    font-weight: bold;
+}

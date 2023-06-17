@@ -7,19 +7,14 @@ const clinic_base_Url = 'http://localhost:4900'
 const token = localStorage.getItem('token') || null;
 
 
-
 // if(!token){
 //     location.href='../View/login.html'
 // }
 
 
-
 const ClinicDiv = document.getElementById('nit_clinic_cards');
 
-
-
-const cd = [{_id:"648b20ef6a29595f07491533",name:"clinic A",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic B",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic C",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic D",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic A",address:"Lucknow",opensAt:"10am",closesAt:"6pm"},{_id:"648b20ef6a29595f07491533",name:"clinic B",address:"Lucknow",opensAt:"10am",closesAt:"6pm"}]
-
+let AllClinicData = []
 
 
 
@@ -28,14 +23,16 @@ fetchClinicData()
 
 function fetchClinicData(){
 
-    fetch(`${clinic_base_Url}/book/clinic`)
+    fetch(`${clinic_base_Url}/admin/allclinic`)
     .then((res)=>{
-        return res.text()
+        return res.json()
     })
     .then((data)=>{
-        console.log(data)
+        console.log(data.allclinic)
 
-        RenderClinic(cd)
+        AllClinicData=data.allclinic;
+
+        RenderClinic(AllClinicData)
 
     })
     .catch((err)=>{
@@ -98,7 +95,7 @@ function handleClinicClick(id){
 
     // move to doctors page
     
-    // location.href = ''
+    location.href = '../View/doctors.html'
 }
 
 
@@ -108,11 +105,20 @@ function handleSearch(){
     
     const data=document.getElementById('clinic_search').value;
 
-    const res = cd.filter((ele)=>{
-        return ele.name.toLowerCase().includes(data.toLowerCase())
-    })
+    if(data){
 
-    RenderClinic(res)
+        const res = AllClinicData.filter((ele)=>{
+            return ele.name.toLowerCase().includes(data.toLowerCase())
+        })
+
+        RenderClinic(res)
+    }
+    else{
+        
+        RenderClinic(AllClinicData)
+    }
+
+
 
     
 }

@@ -650,7 +650,6 @@ li{
             <!-- JavaScript code will populate the cards here -->
           </div>
           
-          
           <script>
             const cardContainer = document.querySelector('.card-container');
           
@@ -662,30 +661,30 @@ li{
                 data.forEach(item => {
                   const { _id, docDetails, userDetails } = item;
                   const doctorName = docDetails.name;
-                  const appointmentDate = new Date(item.appointmentdate).toLocaleDateString();
+                  const appointmentDateTime = new Date(item.appointmentdate);
+                  const appointmentDate = appointmentDateTime.toLocaleDateString();
+                  const appointmentTime = appointmentDateTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
                   const petCategory = item.petcategory;
           
                   const card = document.createElement('div');
                   card.classList.add('card');
           
                   card.innerHTML = `
-                    <h3>Doctor Name :${doctorName}</h3>
+                    <h3>Doctor Name: ${doctorName}</h3>
                     <p>Appointment Date: ${appointmentDate}</p>
+                    <p>Appointment Time: ${appointmentTime}</p>
                     <p>Pet Category: ${petCategory}</p>
                     <p>User: ${userDetails.name}</p>
                   `;
           
                   const c2 = document.createElement('div');
                   if (userDetails.role === 'user') {
-
                     const doctorEmail = docDetails.email;
                     const doctorPhoneNo = docDetails.phoneNo;
                     const contactInfo = document.createElement('p');
                     contactInfo.innerText = `Doctor's Email: ${doctorEmail}\nDoctor's Phone: ${doctorPhoneNo}`;
                     card.appendChild(contactInfo);
-
-
-
+          
                     const cancelButton = document.createElement('button');
                     cancelButton.innerText = 'Cancel';
                     cancelButton.addEventListener('click', () => {
@@ -702,12 +701,55 @@ li{
                       // Handle reschedule button click event
                       console.log('Reschedule button clicked');
                       console.log('Appointment ID:', _id);
+          
+                      // Clear existing timing slots
+                      while (c2.firstChild) {
+                        c2.removeChild(c2.firstChild);
+                      }
+          
+                      // Get available timing slots
+                      const slots = Object.values(docDetails.slots);
+                      const availableSlots = slots.filter(slot => slot.status === true);
+          
+                      if (availableSlots.length > 0) {
+                        // Create and append new timing slot elements
+                        availableSlots.forEach(slot => {
+                          const slotButton = document.createElement('button');
+                          slotButton.innerText = slot.timing;
+                          slotButton.addEventListener('click', () => {
+                            // slot selection event you can write here abhinav
+                            console.log('Slot selected:', slot.timing);
+                          });
+                          c2.appendChild(slotButton);
+                        });
+                      } else {
+                        const noSlotsAvailable = document.createElement('p');
+                        noSlotsAvailable.innerText = 'No available slots';
+                        c2.appendChild(noSlotsAvailable);
+                      }
+          
+                      // Create and append back button
+                      const backButton = document.createElement('button');
+                      backButton.innerText = 'Back';
+                      backButton.addEventListener('click', () => {
+                        // Handle back button click event
+                        console.log('Back button clicked');
+          
+                        // Remove slot buttons
+                        while (c2.firstChild) {
+                          c2.removeChild(c2.firstChild);
+                        }
+          
+                        // Show cancel and reschedule buttons again
+                        c2.appendChild(cancelButton);
+                        c2.appendChild(rescheduleButton);
+                      });
+          
+                      c2.appendChild(backButton);
                     });
-
+          
                     c2.appendChild(rescheduleButton);
                     card.appendChild(c2);
-          
-                    
                   }
           
                   cardContainer.appendChild(card);
@@ -717,8 +759,7 @@ li{
                 console.log('Error:', error);
               });
           </script>
-       
-    
+          
 
     </section>
 
