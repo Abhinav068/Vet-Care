@@ -1,43 +1,14 @@
 
-const bookingparURL = ''
+const bookingparURL = 'http:localhost:4900'
 
-const booktoken = localStorage.getItem('') || null
+const booktoken = localStorage.getItem('token') || null
 
 if (!booktoken) {
-    location.href = ''
+    location.href = '../View/login.html'
 }
 
 
-const Did = localStorage.getItem('doctorID')
-
-
-const DoctorData = []
-
-
-FetchDRData()
-
-
-function FetchDRData() {
-
-    fetch(`${bookingparURL}/${Did}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            console.log(data)
-
-            DoctorData = data
-
-            RenderDRinfo(data._id, data.name)
-
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-
-
-}
-
+const DoctorData =  JSON.parse(localStorage.getItem('localDR')) || []
 
 
 const bookdate = document.getElementById('dateField')
@@ -46,6 +17,11 @@ const petcategory = document.getElementById('seletcategory')
 
 const customerName = document.getElementById('cust-Name')
 
+
+console.log("==>",DoctorData[0]._id, DoctorData[0].name)
+
+
+RenderDRinfo(DoctorData[0]._id, DoctorData[0].name)
 
 
 function RenderDRinfo(did, dname) {
@@ -58,9 +34,9 @@ function RenderDRinfo(did, dname) {
     const Dname = document.getElementById('DR_name_here')
 
 
-    Dname.innerText = dname;
+    Dname.value = dname;
 
-    DoctorID.innerText = did
+    DoctorID.value = did
 
 
     // filter available slots only here
@@ -76,11 +52,11 @@ function RenderDRinfo(did, dname) {
 
     const AvailSlots = []
 
-    for () {
+    // for () {
 
-        // filter free slots and store in availslot array
+    //     // filter free slots and store in availslot array
 
-    }
+    // }
 
 
 
@@ -106,10 +82,8 @@ function getSlot(ele) {
 }
 
 
-
-
-
 function handleBookAppointMent() {
+
 
     const bookingObj = {
 

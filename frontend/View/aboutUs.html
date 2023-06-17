@@ -99,6 +99,7 @@
     width: 50%;
     /* border: 2px solid red; */
     display: flex;
+    flex-direction: column;
    justify-content: center;
    align-items: center;
 }
@@ -312,14 +313,20 @@
     font-size: 20px;
 }
 @media (max-width: 768px) {
-    .parent .left,
-    .parent .right {
-      width: 50%;
-      order: 1;
-      text-align: left;
-      display: inline-block;
+    .parent {
+    display: flex;
+    flex-direction: row;
     }
+
+    .parent .left img {
+    order: 3;
 }
+ .parent .right p {
+    order: 2;
+ }
+
+}
+
     </style>
 </head>
 <body>

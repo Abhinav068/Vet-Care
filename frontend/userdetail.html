@@ -540,9 +540,80 @@ li{
         margin-top:1rem;
         width:100%;
     }
+
+  
 }
 
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 
+  .card {
+    width: 90%;
+    height: 350px;
+    background-color:  rgb(171, 219, 238);;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 18px;
+  }
+
+  .card title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .card>description{
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  /* .card image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  } */
+
+  .card button {
+    display: flex;
+    border:1px solid white;
+    background-color: white;
+    color:rgb(0, 183, 255);
+    font-weight: bold;
+    padding:5px 10px;
+    border-radius: 5px;
+    transition: transform .2s;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .card button:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.card div{
+    display: flex;
+    justify-content: end;
+    
+    margin: 20px;
+}
+.card div button{
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+   
+  
 
 /* ***************************************************************************************************************** */
 
@@ -557,140 +628,116 @@ li{
     </section>
 
 
-<!-- ********************************************************************************************************** -->
-
-
-    <section class="land-sections">
-        <div data-aos="zoom-in" data-aos-duration="800" id="land-video">
-            <img
-                src="https://img.freepik.com/premium-vector/doctors-nurses-wearing-surgical-face-mask-male-female-medical-characters-set_333239-107.jpg?w=1380" />
-            <h1 style="text-align: center; padding-top: 25px; font-size: 50px">Welcome to VetCare</h1>
-
-        </div>
-    </section>
 
 
     <!-- ************************************************************************************************* -->
 
 
-    <section class="land-sections">
-        <div id="feature-cont">
-            <div data-aos="fade-down" data-aos-duration="800" class="feature-card">
-                <div class="feature-img">
-                    <img alt="feature-img"
-                        src="https://img.freepik.com/premium-vector/cartoon-veterinarian-doctor-examining-puppy_29190-1248.jpg?w=2000" />
-                </div>
-                <div class="feature-desc">
-                    <h3>Find Doctors Near You</h3>
-                    <p>Confirmed Appointments</p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="800" class="feature-card">
-                <div class="feature-img">
-                    <img alt="feature-img"
-                        src="https://i.pinimg.com/236x/9f/32/20/9f3220f4535dd9cd9743b995fdfdeaa1.jpg" />
-                </div>
-                <div class="feature-desc">
-                    <h3>Experienced and Qualified Staff</h3>
-                    <p>Safe and Trusted</p>
-                </div>
-            </div>
-            <div data-aos="fade-down" data-aos-duration="800" class="feature-card">
-                <div class="feature-img">
-                    <img alt="feature-img"
-                        src="https://img.freepik.com/premium-vector/veterinary-icons-set-flat-style_96318-3597.jpg" />
-                </div>
-                <div class="feature-desc">
-                    <h3>Advanced Equipments</h3>
-                    <p>Hygiene Maintenance</p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="800" class="feature-card">
-                <div class="feature-img">
-                    <img alt="feature-img"
-                        src="https://img.freepik.com/premium-vector/pharmacy-shelf-medications-medicineson-drugstore-shelves-vector-illustration_171739-726.jpg" />
-                </div>
-                <div class="feature-desc">
-                    <h3>Walk-in Medical Store</h3>
-                    <p>Prescription based</p>
-                </div>
-            </div>
-            <div data-aos="fade-down" data-aos-duration="800" class="feature-card">
-                <div class="feature-img">
-                    <img alt="feature-img"
-                        src="https://thumbs.dreamstime.com/b/illustration-veterinary-ambulance-car-gray-background-machine-operative-form-animals-113031399.jpg" />
-                </div>
-                <div class="feature-desc">
-                    <h3>Emergency Ambulace Service</h3>
-                    <p>24x7 availability</p>
-                </div>
-            </div>
-        </div>
+
+<section>
+
+<div>
+    <pre>
+
+
+        
+
+    </pre>
+</div>
+
+
+        <div class="card-container">
+            <!-- JavaScript code will populate the cards here -->
+          </div>
+          
+          
+          <script>
+            const cardContainer = document.querySelector('.card-container');
+          
+            fetch('http://localhost:4900/admin/getappointments/6489f41e44f9bda01cbcda44')
+              .then(response => response.json())
+              .then(responseData => {
+                const data = responseData.data;
+          
+                data.forEach(item => {
+                  const { _id, docDetails, userDetails } = item;
+                  const doctorName = docDetails.name;
+                  const appointmentDate = new Date(item.appointmentdate).toLocaleDateString();
+                  const petCategory = item.petcategory;
+          
+                  const card = document.createElement('div');
+                  card.classList.add('card');
+          
+                  card.innerHTML = `
+                    <h3>Doctor Name :${doctorName}</h3>
+                    <p>Appointment Date: ${appointmentDate}</p>
+                    <p>Pet Category: ${petCategory}</p>
+                    <p>User: ${userDetails.name}</p>
+                  `;
+          
+                  const c2 = document.createElement('div');
+                  if (userDetails.role === 'user') {
+
+                    const doctorEmail = docDetails.email;
+                    const doctorPhoneNo = docDetails.phoneNo;
+                    const contactInfo = document.createElement('p');
+                    contactInfo.innerText = `Doctor's Email: ${doctorEmail}\nDoctor's Phone: ${doctorPhoneNo}`;
+                    card.appendChild(contactInfo);
+
+
+
+                    const cancelButton = document.createElement('button');
+                    cancelButton.innerText = 'Cancel';
+                    cancelButton.addEventListener('click', () => {
+                      // Handle cancel button click event
+                      console.log('Cancel button clicked');
+                      console.log('Appointment ID:', _id);
+                    });
+                    c2.appendChild(cancelButton);
+                    card.appendChild(c2);
+          
+                    const rescheduleButton = document.createElement('button');
+                    rescheduleButton.innerText = 'Reschedule';
+                    rescheduleButton.addEventListener('click', () => {
+                      // Handle reschedule button click event
+                      console.log('Reschedule button clicked');
+                      console.log('Appointment ID:', _id);
+                    });
+
+                    c2.appendChild(rescheduleButton);
+                    card.appendChild(c2);
+          
+                    
+                  }
+          
+                  cardContainer.appendChild(card);
+                });
+              })
+              .catch(error => {
+                console.log('Error:', error);
+              });
+          </script>
+       
+    
+
     </section>
 
 
-<!-- ************************************************************************************************** -->
 
 
 
-    <section class="land-sections">
-        <div data-aos="fade-right" data-aos-duration="800" id="consult-head">
-            <h2>We offer a variety of veterinary treatments to help your pet get healthy and stay healthy.</h2>
-            <p>We aim to be the best pet care services in India</p>
-        </div>
-        <div id="consult-body">
-            <div data-aos="fade-left" data-aos-duration="800" class="consult-card">
-                <div class="c-c-img">
-                    <img alt="consult card img"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR06be8smOsYFQFk3vnQWC9MTELqLDbvZcKnxsnIHjxU853FIaN" />
-                </div>
-                <div class="c-c-desc">
-                    <h5>General Health Care</h5>
-                    <a href="">CONSULT NOW</a>
-                </div>
-            </div>
-            <div data-aos="fade-left" data-aos-duration="800" class="consult-card">
-                <div class="c-c-img">
-                    <img alt="consult card img"
-                        src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRWfqIiIvL6jakjcDo-4xtLXFDg3Atw3eF9o9_kaNyYJvAOXQ0y" />
-                </div>
-                <div class="c-c-desc">
-                    <h5>Vaccination & Dewarming</h5>
-                    <a href="">CONSULT NOW</a>
-                </div>
-            </div>
-            <div data-aos="fade-down" data-aos-duration="800" class="consult-card">
-                <div class="c-c-img">
-                    <img alt="consult card img"
-                        src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLgP6_nUKfsY09cOksKESkSJRFKX64ghQbvdg0f8Ax_9KSxQHY" />
-                </div>
-                <div class="c-c-desc">
-                    <h5>Automated Fully Equipped Laboratory</h5>
-                    <a href="">CONSULT NOW</a>
-                </div>
-            </div>
-            <div data-aos="fade-right" data-aos-duration="800" class="consult-card">
-                <div class="c-c-img">
-                    <img alt="consult card img"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdfMSqDWq5M6pQUsEzc5dkDl9h-zGCKC7nWzLEpOziTgmS3bIe" />
-                </div>
-                <div class="c-c-desc">
-                    <h5>Digital X-Ray & Microscopy</h5>
-                    <a href="">CONSULT NOW</a>
-                </div>
-            </div>
-            <div data-aos="fade-right" data-aos-duration="800" class="consult-card">
-                <div class="c-c-img">
-                    <img alt="consult card img"
-                        src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRk5cLmg7LfR9IzEAefaeopDh33t4loZ1-j64NEYUkT14UApd0i" />
-                </div>
-                <div class="c-c-desc">
-                    <h5>Pet Training</h5>
-                    <a href="">CONSULT NOW</a>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- ************************************************************************************************** -->
@@ -753,7 +800,7 @@ document.querySelector("#navbar").innerHTML = `
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
         <button id="nav-login">Login</button>
-        <button id="nav-reg">Signup</button>
+        <button id="nav-reg">SignOUT</button>
     </div>
 </div>
 `

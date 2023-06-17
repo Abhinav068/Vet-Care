@@ -1,11 +1,51 @@
 
-const doctorBaseURL = ''
+const doctorBaseURL = 'http:localhost:4900'
 
-const dtoken = localStorage.getItem('') || null;
+const dtoken = localStorage.getItem('token') || null;
 
 if(!dtoken){
-    location.href = ''
+    location.href = '../View/login.html'
 }
+
+
+
+let obj = {
+    _id:"648c89d44633c054aaf5640f",
+    image:"https://img.freepik.com/free-photo/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-posture_409827-254.jpg",
+    name:"Drstrange",
+    age:34,
+    available:true,
+    clinicId:"648b20ef6a29595f07491533",
+    email:"abc@gmail.com",
+    phoneNo:987654321,
+    role:"Doctor",
+    slots:{
+    
+        slot1:{
+            status:true,
+            timing:"11am-11:30am",
+            time:"11 00"
+        },
+        slot1:{
+            status:false,
+            timing:"11am-11:30am",
+            time:"11 00"
+        },
+        slot1:{
+            status:true,
+            timing:"11am-11:30am",
+            time:"11 00"
+        }
+    
+    },
+    verified:false
+    }
+
+
+
+const DoctorsData = [obj,obj,obj,obj,obj,obj]
+
+
 
 const clinicID = localStorage.getItem('ClinicID') || null;
 
@@ -20,14 +60,14 @@ function fetchDoctorData(){
 
     // make fetch request to get doctors data
 
-    fetch(`${doctorBaseURL}`)
+    fetch(`${doctorBaseURL}/book/doctors/${clinicID}`)
     .then((res)=>{
-        return res.json()
+        return res.text()
     })
     .then((data)=>{
         console.log(data)
 
-        RenderDR(data)
+        RenderDR(DoctorsData)
 
     })
     .catch((err)=>{
@@ -47,8 +87,11 @@ function RenderDR(data){
 
     const doccards = data.map((ele)=>{
 
-        return getCards(ele)
-    
+        if(ele.verified){
+
+            return getCards(ele)
+        }
+
     }).join('')
 
 
@@ -66,20 +109,20 @@ function getCards(ele){
 
                  <div>
 
-                    <img src="${}" alt="Doctor Image">
+                    <img src="${ele.image}" alt="Doctor Image">
 
                 </div>
 
                 <div>
-                    <p>Name : ${}</p>
-                    <p>Email-ID : ${}</p>
-                    <p>Contact : ${}</p>
-                    <p>Experience : ${}</p>
+                    <p>Name : ${ele.name}</p>
+                    <p>Email-ID : ${ele.email}</p>
+                    <p>Contact : ${ele.phoneNo}</p>
+                    <p>Experience : 20+ Years</p>
 
                 </div>
 
                 <div>
-                    <button onclick="handleAppointmentBook('${}')">Schedule Appointment</button>
+                    <button onclick="handleAppointmentBook('${ele._id}')">Schedule Appointment</button>
                 </div>
 
 
@@ -94,36 +137,14 @@ function getCards(ele){
 
 function handleAppointmentBook(dr_ID){
 
-    localStorage.setItem('doctorID',dr_ID)
+    const localdr = DoctorsData.filter((ele)=> ele._id===dr_ID)
 
-    location.href = ''
+    localStorage.setItem('localDR',JSON.stringify(localdr))
+
+    // location.href = ''
 }
 
 
 
 
-
-// clinic schema
-
-// _id
-// name:"clinic 2"
-// img:url
-// address:"UttarPradesh"
-// opensAt:"10am"
-// closesAt:"6pm"
-// doctors:[1,2,3,4,5,6,7,8,9]
-
-
-// doctors schema
-
-
-//_id
-// name:"Dr Def"
-// age:"34"
-// available:"true"
-// email:"abc@gmail.com"
-// phoneNo:"987654321"
-// role:"doctor"
-// slots:{ slot1 : { timing:, status: } }
-// verified :false
 
