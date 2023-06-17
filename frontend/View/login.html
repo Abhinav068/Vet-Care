@@ -544,6 +544,13 @@
                 </a>
             </div>
         </div>
+      </form>
+      <div style="width:100%; margin:auto; margin-bottom: 5%; border:1px solid lightgray; padding:5%;">
+        
+        <a style="display:block" href="http://localhost:4900/auth/google">
+          <button style="width:100%; background-color: #0b76c6; color:white; border:1px solid #0b76c6; border-radius: 5px; padding:7px 0;"> <i class="fa-brands fa-google"></i> &nbsp;&nbsp; Continue with Google</button>
+        </a>
+      </div>
     </div>
 
     <section id="footer">
@@ -565,6 +572,50 @@
 
     //***********************************************(SIGNIN)**************************************************
 
+
+let form =document.querySelector("form");
+form.addEventListener("submit",async (e)=>{
+    e.preventDefault();
+    let obj={
+        payload:form.exampleFormControlInput1.value,
+        password:form.exampleFormControlInput2.value
+    }
+    try {
+        let res=await fetch("http://localhost:4900/user/signin",{
+            method:"POST",
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify(obj)
+        })
+        let data=await res.json();
+        console.log(data);
+        if(!data || data.mag || data.msg=="Error in Login" || data.msg=="User not Found"){
+           
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="">Why do I have this issue?</a>'
+})
+        }else{
+            localStorage.setItem("token",data.token);
+            localStorage.setItem("userName",data.name);
+            Swal.fire("", "Login Successful", "success").then(function() {
+                window.location.href="../index.html";
+            });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+})
+
+
+
+// *****************************************(NAV BAR)*****************************************************
+
+
+document.querySelector("#navbar").innerHTML = `
 
     let form = document.querySelector("form");
     form.addEventListener("submit", async (e) => {
@@ -611,6 +662,7 @@
 
 
     document.querySelector("#navbar").innerHTML = `
+
 <div id="nav-cont">
     <div id="hamb">
         <i class="fa-solid fa-bars"></i>
