@@ -57,10 +57,6 @@ const scheduleReminder = (appointment) => {
     scheduleReminder
   };
   
-module.exports = {
-  scheduleReminder
-};
-
 
 
 
