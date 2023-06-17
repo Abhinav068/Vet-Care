@@ -64,7 +64,7 @@ adminrouter.get('/getdoctors/:clinicid', async (req, res) => {
   }
 })
 
-adminrouter.patch('/booking/:slotno', async (req, res) => {
+adminrouter.post('/booking/:slotno', async (req, res) => {
   try {
     const { doctorsid, userid, petcategory, bookingdate, appointmentdate } = req.body;
     let slotNo = req.params.slotno;
@@ -88,7 +88,7 @@ adminrouter.patch('/booking/:slotno', async (req, res) => {
       [u]: false
     }
     );
-    res.status(200).send({ msg: 'Appointment booked sucessfully' });
+    
 
   } catch (error) {
     res.status(404).send({ error });
