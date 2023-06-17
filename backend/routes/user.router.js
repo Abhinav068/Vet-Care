@@ -49,7 +49,7 @@ userRouter.post("/emailVerify", async (req, res) => {
   const mailOptions = {
     from: "abhinav28897@gmail.com",
     to: email,
-    subject: "Here is your OTP for VETCARE Login",
+    subject: "Here is your OTP for VetCare Login",
     html: `  <!DOCTYPE html>
         <html>
           <head>
@@ -61,15 +61,15 @@ userRouter.post("/emailVerify", async (req, res) => {
             <table style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #fff; border-collapse: collapse;">
               <tr>
                 <td style="background-color: #0077c0; text-align: center; padding: 10px;">
-                  <h1 style="font-size: 28px; color: #fff; margin: 0;">VETCARE</h1>
+                  <h1 style="font-size: 28px; color: #fff; margin: 0;">VetCare</h1>
                 </td>
               </tr>
               <tr>
                 <td style="padding: 20px;">
-                  <h2 style="font-size: 24px; color: #0077c0; margin-top: 0;">OTP for VETCARE Login : ${otp}</h2>
-                  <p style="margin-bottom: 20px;">Thank you for choosing VETCARE Services</p>
+                  <h2 style="font-size: 24px; color: #0077c0; margin-top: 0;">OTP for VetCare Login : ${otp}</h2>
+                  <p style="margin-bottom: 20px;">Thank you for choosing VetCare Services</p>
                   <p style="margin-bottom: 0;">Best regards,</p>
-                  <p style="margin-bottom: 20px;">VETCARE</p>
+                  <p style="margin-bottom: 20px;">VetCare</p>
                 </td>
               </tr>
             </table>
