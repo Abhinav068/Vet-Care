@@ -12,571 +12,677 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-}
-body{
-    font-family: poppins, sans-serif;
-    font-size: 0.9rem;
-}
-li{
-    list-style: none;
-}
-.land-sections{
-    width:77%;
-    margin: 4.5rem auto;
-}
-#land-video{
-    width:100%;
-}
-#land-video>img{
-    width:100%;
-}
-#land-video>video{
-    width:100%;
-    height:30rem;
-}
-#feature-cont{
-    display:grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 3rem;
-}
-.feature-card{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border-radius: 10px;
-    transition: transform .2s;
-}
-.feature-card:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-.feature-img{
-    width:100%;
-}
-.feature-img>img{
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    width:100%;
-}
-.feature-desc{
-    padding:12px;
-}
-.feature-desc>*{
-    margin:10px 0;
-}
-.feature-desc>p{
-    color:gray;
-    font-size: 15px;
-}
-#consult-head>*{
-    margin:7px 0;
-}
-#consult-body{
-    display:grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 3rem;
-    margin:30px 0;
-}
-.consult-card{
-    border-radius: 10px;
-    transition: transform .2s;
-}
-.consult-card:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-.c-c-img{
-    width:100%;
-    display: flex;
-}
-.c-c-img>img{
-    width:70%;
-    height:10rem;
-    border-radius: 50%;
-    margin: auto;
-}
-.c-c-desc{
-    padding:10px;
-    text-align: center;
-}
-.c-c-desc>*{
-    margin:5px 0;
-}
-.c-c-desc>a{
-    color:rgb(0, 183, 255);
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.dept-card{
-    width:100%;
-    position:relative;
-}
-.dept-card>img{
-    width:100%;
-    border-radius:1rem;
-    margin:1rem 0;
-}
-#dept-sec>div:nth-child(odd)>.dept-body{
-    width:40%;
-    position:absolute;
-    top:3rem;
-    left:3rem;
-}
-#dept-sec>div:nth-child(even)>.dept-body{
-    width:40%;
-    position:absolute;
-    top:3rem;
-    right:5rem;
-}
-.dept-body>h1{
-    font-size:35px;
-    margin-bottom: 1rem;
-}
-.dept-body>p{
-    line-height: 1.5rem;
-    color:rgb(107, 107, 107);
-}
-
-
-
-/* ************************************************(NAV BAR)*********************************************** */
-
-
-li{
-    list-style: none;
-}
-#navbar{
-    background-color: rgb(0, 183, 255);
-    position: fixed;
-    top:0;
-    z-index: 1000;
-    width:100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-#nav-cont{
-    width:84%;
-    margin:auto;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    color:white;
-    font-weight: 300;
-}
-#hamb{
-    display: none;
-}
-#nav-logo{
-    width:18%;
-}
-#nav-logo:hover{
-    cursor: pointer;
-}
-#nav-img{
-    width:100%;
-    height:3.5rem;
-}
-#nav-img>img{
-    width:100%;
-    height:3.5rem;
-    object-fit: contain;
-    transition: transform .2s;
-}
-#nav-img>img:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-#nav-menu{
-    display: flex;
-    width:45%;
-    align-items: center;
-    justify-content: space-between;
-}
-#nav-menu>li:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-#nav-menu a{
-    text-decoration: none;
-    color:white;
-}
-#nav-user-details{
-    width:15%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#nav-user-details>button{
-    border:1px solid white;
-    background-color: white;
-    color:rgb(0, 183, 255);
-    font-weight: bold;
-    padding:5px 10px;
-    border-radius: 5px;
-    transition: transform .2s;
-}
-#nav-user-details>button:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-
-
-
-/* ***************************************************(FOOTER)******************************************* */
-
-
-
-
-#footer{
-    width:99.9%;
-    background-color: rgb(0, 183, 255);
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;   
-}
-#footer-cont{
-    width:80%;
-    margin:auto;
-    display: flex;
-    justify-content: space-between;
-    padding-top:2rem;
-    color:white;
-}
-#footer-left{
-    width:50%;
-    display: flex;
-    justify-content: space-between;
-}
-#footer-left>div>h4{
-    margin-bottom:0.5rem;
-    text-decoration: underline;
-}
-#footer-left>div>p{
-    font-size: 15px;
-    margin-bottom: 3px;
-}
-#footer-left>div>p:hover{
-    color: lightgrey;
-    text-decoration: underline;
-    cursor: pointer;
-}
-#footer-right{
-    width:17%;
-}
-#logo-div{
-    width:100%;
-    height:10rem;
-}
-#logo-div>img{
-    width:100%;
-    height:10rem;
-    object-fit: contain;
-}
-#socials{
-    width:75%;
-    margin:1rem auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-}
-
-
-
-/* ***********************************************(MEDIA QUERY)********************************************** */
-
-
-@media all and (min-width:1200px){
-    #nav-menu{
-        display: flex;
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
     }
-}
-@media all and (min-width:701px) and (max-width:1200px){
-    #nav-menu{
-        width:60%;
-        font-size: 0.7rem;
+
+    body {
+        font-family: poppins, sans-serif;
+        font-size: 0.9rem;
     }
-    #nav-user-details{
-        width:6rem;
+
+    li {
+        list-style: none;
     }
-    #nav-user-details>button{
-        font-size: 0.6rem;
-        padding:4px 4px;
+
+    .land-sections {
+        width: 77%;
+        margin: 4.5rem auto;
     }
-    #feature-cont{
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 3rem;
-        row-gap: 1rem;
+
+    #land-video {
+        width: 100%;
     }
-    #consult-body{
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        column-gap: 1.5rem;
-        row-gap: 1rem;
+
+    #land-video>img {
+        width: 100%;
     }
-    #dept-sec>div:nth-child(odd)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:2rem;
-        left:1rem;
+
+    #land-video>video {
+        width: 100%;
+        height: 30rem;
     }
-    #dept-sec>div:nth-child(even)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:2rem;
-        right:1rem;
-    }
-    .dept-body>h1{
-        font-size:1.2rem;
-        margin-bottom: 0.5rem;
-    }
-    .dept-body>p{
-        line-height: 1rem;
-        color:rgb(107, 107, 107);
-        font-size: 0.6rem;
-    }
-    #footer-left{
-        width:60%;
-        display: flex;
-        justify-content: space-between;
-    }
-    #footer-left>div>h4{
-        margin-bottom:0.8rem;
-        text-decoration: underline;
-        font-size: 0.8rem;
-    }
-    #footer-left>div>p{
-        font-size: 0.6rem;
-    }
-    #footer-right{
-        width:20%;
-    }
-    #logo-div{
-        width:100%;
-        height:5rem;
-    }
-    #logo-div>img{
-        width:100%;
-        height:5rem;
-        object-fit: contain;
-    }
-    #socials{
-        width:75%;
-        margin:1rem auto;
+
+    #feature-cont {
         display: grid;
-        grid-template-columns: repeat(4,1fr);
-        font-size: 0.8rem;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3rem;
+    }
+
+    .feature-card {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 10px;
+        transition: transform .2s;
+    }
+
+    .feature-card:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .feature-img {
+        width: 100%;
+    }
+
+    .feature-img>img {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        width: 100%;
+    }
+
+    .feature-desc {
+        padding: 12px;
+    }
+
+    .feature-desc>* {
+        margin: 10px 0;
+    }
+
+    .feature-desc>p {
+        color: gray;
+        font-size: 15px;
+    }
+
+    #consult-head>* {
+        margin: 7px 0;
+    }
+
+    #consult-body {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3rem;
+        margin: 30px 0;
+    }
+
+    .consult-card {
+        border-radius: 10px;
+        transition: transform .2s;
+    }
+
+    .consult-card:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .c-c-img {
+        width: 100%;
+        display: flex;
+    }
+
+    .c-c-img>img {
+        width: 70%;
+        height: 10rem;
+        border-radius: 50%;
+        margin: auto;
+    }
+
+    .c-c-desc {
+        padding: 10px;
         text-align: center;
     }
-    .card-title,.card-text{
-        font-size: 1rem;
-    }
-    .input-grp{
-        width: 50%;
-        margin: auto;
-        margin-top: 3%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #doctors-cont{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap:1.5rem;
-    }
-    .doc-search-bar{
-        margin:auto;
-        width:80%;
-        display: block;
-    }
-    #filter-approval{
-        width:100%;
-    }
-    #doc-sf{
-        margin-top:1rem;
-        width:100%;
-    }
-}
 
-@media all and (min-width:300px) and (max-width:700px){
-    #hamb{
-        display: block;
+    .c-c-desc>* {
+        margin: 5px 0;
     }
-    #nav-menu{
-        border-radius: 5px;
+
+    .c-c-desc>a {
+        color: rgb(0, 183, 255);
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .dept-card {
+        width: 100%;
+        position: relative;
+    }
+
+    .dept-card>img {
+        width: 100%;
+        border-radius: 1rem;
+        margin: 1rem 0;
+    }
+
+    #dept-sec>div:nth-child(odd)>.dept-body {
+        width: 40%;
         position: absolute;
-        left:0;
-        top:80%;
-        width:45%;
-        text-align: center;
-        display:none;
+        top: 3rem;
+        left: 3rem;
+    }
+
+    #dept-sec>div:nth-child(even)>.dept-body {
+        width: 40%;
+        position: absolute;
+        top: 3rem;
+        right: 5rem;
+    }
+
+    .dept-body>h1 {
+        font-size: 35px;
+        margin-bottom: 1rem;
+    }
+
+    .dept-body>p {
+        line-height: 1.5rem;
+        color: rgb(107, 107, 107);
+    }
+
+
+
+    /* ************************************************(NAV BAR)*********************************************** */
+
+
+    li {
+        list-style: none;
+    }
+
+    #navbar {
         background-color: rgb(0, 183, 255);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     }
-    #nav-menu>li{
-        margin:0.5rem auto;
-        border-bottom:1px solid white;
+
+    #nav-cont {
+        width: 84%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        font-weight: 300;
     }
-    #nav-user-details{
-        width:6rem;
+
+    #hamb {
+        display: none;
     }
-    #nav-user-details>button{
-        font-size: 0.6rem;
-        padding:4px 4px;
+
+    #nav-logo {
+        width: 18%;
     }
-    #feature-cont{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 3rem;
-        row-gap: 1rem;
+
+    #nav-logo:hover {
+        cursor: pointer;
     }
-    #consult-body{
-        display:grid;
-        grid-template-columns: repeat(2,1fr);
-        column-gap: 1.5rem;
-        row-gap: 1rem;
+
+    #nav-img {
+        width: 100%;
+        height: 3.5rem;
     }
-    #dept-sec>div:nth-child(odd)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:1.5rem;
-        left:1rem;
+
+    #nav-img>img {
+        width: 100%;
+        height: 3.5rem;
+        object-fit: contain;
+        transition: transform .2s;
     }
-    #dept-sec>div:nth-child(even)>.dept-body{
-        width:50%;
-        position:absolute;
-        top:1.5rem;
-        right:1rem;
+
+    #nav-img>img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
     }
-    .dept-body>h1{
-        font-size:0.6rem;
-        margin-bottom: 0.2rem;
+
+    #nav-menu {
+        display: flex;
+        width: 45%;
+        align-items: center;
+        justify-content: space-between;
     }
-    .dept-body>p{
-        line-height: 0.5rem;
-        color:rgb(107, 107, 107);
-        font-size: 0.3rem;
+
+    #nav-menu>li:hover {
+        cursor: pointer;
+        text-decoration: underline;
     }
-    #footer-left{
-        width:70%;
+
+    #nav-menu a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #nav-user-details {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #nav-user-details>button {
+        border: 1px solid white;
+        background-color: white;
+        color: rgb(0, 183, 255);
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: transform .2s;
+    }
+
+    #nav-user-details>button:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+
+
+    /* ***************************************************(FOOTER)******************************************* */
+
+
+
+
+    #footer {
+        width: 99.9%;
+        background-color: rgb(0, 183, 255);
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    #footer-cont {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+        color: white;
+    }
+
+    #footer-left {
+        width: 50%;
         display: flex;
         justify-content: space-between;
     }
-    #footer-left>div>h4{
-        margin-bottom:0.5rem;
+
+    #footer-left>div>h4 {
+        margin-bottom: 0.5rem;
         text-decoration: underline;
-        font-size: 0.5rem;
     }
-    #footer-left>div>p{
-        font-size: 0.5rem;
+
+    #footer-left>div>p {
+        font-size: 15px;
+        margin-bottom: 3px;
     }
-    #footer-right{
-        width:20%;
+
+    #footer-left>div>p:hover {
+        color: lightgrey;
+        text-decoration: underline;
+        cursor: pointer;
     }
-    #logo-div{
-        width:100%;
-        height:5rem;
+
+    #footer-right {
+        width: 17%;
     }
-    #logo-div>img{
-        width:100%;
-        height:5rem;
+
+    #logo-div {
+        width: 100%;
+        height: 10rem;
+    }
+
+    #logo-div>img {
+        width: 100%;
+        height: 10rem;
         object-fit: contain;
     }
-    #socials{
-        width:75%;
-        margin:1rem auto;
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    .card-img-overlay>div{
-        margin: 10px;
-    }
-    .input-grp{
-        width: 65%;
-        margin: auto;
-        margin-top: 3%;
+
+    #socials {
+        width: 75%;
+        margin: 1rem auto;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.5rem;
-    }
-    .card-title,.card-text{
-        font-size: 0.5rem;
-    }
-    .sb-top{
-        display: none;
-    }
-    .sb-bottom{
-        padding-top:1rem;
-    }
-    .card-group{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-    }
-    .slides-img,.records-banner img,.trust-banner img,.sb-top-img{
-        display: none;
-    }
-    #doctors-cont{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap:1.5rem;
-    }
-    .doc-search-bar{
-        margin:auto;
-        width:80%;
-        display: block;
-    }
-    #filter-approval{
-        width:100%;
-    }
-    #doc-sf{
-        margin-top:1rem;
-        width:100%;
+        justify-content: space-between;
+        font-size: 20px;
     }
 
-  
-}
 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
 
-  .card {
-    width: 90%;
-    height: 350px;
-    background-color:  rgb(171, 219, 238);;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 18px;
-  }
+    /* ***********************************************(MEDIA QUERY)********************************************** */
 
-  .card title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
 
-  .card>description{
-    font-size: 17px;
-    line-height: 1.4;
-    margin-bottom: 10px;
-  }
+    @media all and (min-width:1200px) {
+        #nav-menu {
+            display: flex;
+        }
+    }
 
-  /* .card image {
+    @media all and (min-width:701px) and (max-width:1200px) {
+        #nav-menu {
+            width: 60%;
+            font-size: 0.7rem;
+        }
+
+        #nav-user-details {
+            width: 6rem;
+        }
+
+        #nav-user-details>button {
+            font-size: 0.6rem;
+            padding: 4px 4px;
+        }
+
+        #feature-cont {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 3rem;
+            row-gap: 1rem;
+        }
+
+        #consult-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+        }
+
+        #dept-sec>div:nth-child(odd)>.dept-body {
+            width: 50%;
+            position: absolute;
+            top: 2rem;
+            left: 1rem;
+        }
+
+        #dept-sec>div:nth-child(even)>.dept-body {
+            width: 50%;
+            position: absolute;
+            top: 2rem;
+            right: 1rem;
+        }
+
+        .dept-body>h1 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dept-body>p {
+            line-height: 1rem;
+            color: rgb(107, 107, 107);
+            font-size: 0.6rem;
+        }
+
+        #footer-left {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #footer-left>div>h4 {
+            margin-bottom: 0.8rem;
+            text-decoration: underline;
+            font-size: 0.8rem;
+        }
+
+        #footer-left>div>p {
+            font-size: 0.6rem;
+        }
+
+        #footer-right {
+            width: 20%;
+        }
+
+        #logo-div {
+            width: 100%;
+            height: 5rem;
+        }
+
+        #logo-div>img {
+            width: 100%;
+            height: 5rem;
+            object-fit: contain;
+        }
+
+        #socials {
+            width: 75%;
+            margin: 1rem auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .card-title,
+        .card-text {
+            font-size: 1rem;
+        }
+
+        .input-grp {
+            width: 50%;
+            margin: auto;
+            margin-top: 3%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #doctors-cont {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        .doc-search-bar {
+            margin: auto;
+            width: 80%;
+            display: block;
+        }
+
+        #filter-approval {
+            width: 100%;
+        }
+
+        #doc-sf {
+            margin-top: 1rem;
+            width: 100%;
+        }
+    }
+
+    @media all and (min-width:300px) and (max-width:700px) {
+        #hamb {
+            display: block;
+        }
+
+        #nav-menu {
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 80%;
+            width: 45%;
+            text-align: center;
+            display: none;
+            background-color: rgb(0, 183, 255);
+        }
+
+        #nav-menu>li {
+            margin: 0.5rem auto;
+            border-bottom: 1px solid white;
+        }
+
+        #nav-user-details {
+            width: 6rem;
+        }
+
+        #nav-user-details>button {
+            font-size: 0.6rem;
+            padding: 4px 4px;
+        }
+
+        #feature-cont {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 3rem;
+            row-gap: 1rem;
+        }
+
+        #consult-body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+        }
+
+        #dept-sec>div:nth-child(odd)>.dept-body {
+            width: 50%;
+            position: absolute;
+            top: 1.5rem;
+            left: 1rem;
+        }
+
+        #dept-sec>div:nth-child(even)>.dept-body {
+            width: 50%;
+            position: absolute;
+            top: 1.5rem;
+            right: 1rem;
+        }
+
+        .dept-body>h1 {
+            font-size: 0.6rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .dept-body>p {
+            line-height: 0.5rem;
+            color: rgb(107, 107, 107);
+            font-size: 0.3rem;
+        }
+
+        #footer-left {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #footer-left>div>h4 {
+            margin-bottom: 0.5rem;
+            text-decoration: underline;
+            font-size: 0.5rem;
+        }
+
+        #footer-left>div>p {
+            font-size: 0.5rem;
+        }
+
+        #footer-right {
+            width: 20%;
+        }
+
+        #logo-div {
+            width: 100%;
+            height: 5rem;
+        }
+
+        #logo-div>img {
+            width: 100%;
+            height: 5rem;
+            object-fit: contain;
+        }
+
+        #socials {
+            width: 75%;
+            margin: 1rem auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .card-img-overlay>div {
+            margin: 10px;
+        }
+
+        .input-grp {
+            width: 65%;
+            margin: auto;
+            margin-top: 3%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+        }
+
+        .card-title,
+        .card-text {
+            font-size: 0.5rem;
+        }
+
+        .sb-top {
+            display: none;
+        }
+
+        .sb-bottom {
+            padding-top: 1rem;
+        }
+
+        .card-group {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .slides-img,
+        .records-banner img,
+        .trust-banner img,
+        .sb-top-img {
+            display: none;
+        }
+
+        #doctors-cont {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        .doc-search-bar {
+            margin: auto;
+            width: 80%;
+            display: block;
+        }
+
+        #filter-approval {
+            width: 100%;
+        }
+
+        #doc-sf {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .card {
+        width: 90%;
+        height: 350px;
+        background-color: rgb(171, 219, 238);
+        ;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 18px;
+    }
+
+    .card title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card>description {
+        font-size: 17px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    /* .card image {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -584,47 +690,47 @@ li{
     margin-bottom: 10px;
   } */
 
-  .card button {
-    display: flex;
-    border:1px solid white;
-    background-color: white;
-    color:rgb(0, 183, 255);
-    font-weight: bold;
-    padding:5px 10px;
-    border-radius: 5px;
-    transition: transform .2s;
-    width: 200px;
-    height: 40px;
-    font-size: 18px;
-  }
-  .card button:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-}
-.card div{
-    display: flex;
-    justify-content: end;
-    
-    margin: 20px;
-}
-.card div button{
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-}
-   
-  
+    .card button {
+        display: flex;
+        border: 1px solid white;
+        background-color: white;
+        color: rgb(0, 183, 255);
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: transform .2s;
+        width: 200px;
+        height: 40px;
+        font-size: 18px;
+    }
 
-/* ***************************************************************************************************************** */
+    .card button:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
 
+    .card div {
+        display: flex;
+        justify-content: end;
+
+        margin: 20px;
+    }
+
+    .card div button {
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+    }
 
 
 
+    /* ***************************************************************************************************************** */
 </style>
+
 <body>
 
     <section id="navbar">
-      <!-- script -->
+        <!-- script -->
     </section>
 
 
@@ -634,132 +740,132 @@ li{
 
 
 
-<section>
+    <section>
 
-<div>
-    <pre>
+        <div>
+            <pre>
 
 
-        
+
 
     </pre>
-</div>
+        </div>
 
 
         <div class="card-container">
             <!-- JavaScript code will populate the cards here -->
-          </div>
-          
-          <script>
+        </div>
+
+        <script>
             const cardContainer = document.querySelector('.card-container');
-          
+
             fetch('http://localhost:4900/admin/getappointments/6489f41e44f9bda01cbcda44')
-              .then(response => response.json())
-              .then(responseData => {
-                const data = responseData.data;
-          
-                data.forEach(item => {
-                  const { _id, docDetails, userDetails } = item;
-                  const doctorName = docDetails.name;
-                  const appointmentDateTime = new Date(item.appointmentdate);
-                  const appointmentDate = appointmentDateTime.toLocaleDateString();
-                  const appointmentTime = appointmentDateTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-                  const petCategory = item.petcategory;
-          
-                  const card = document.createElement('div');
-                  card.classList.add('card');
-          
-                  card.innerHTML = `
+                .then(response => response.json())
+                .then(responseData => {
+                    const data = responseData.data;
+
+                    data.forEach(item => {
+                        const { _id, docDetails, userDetails } = item;
+                        const doctorName = docDetails.name;
+                        const appointmentDateTime = new Date(item.appointmentdate);
+                        const appointmentDate = appointmentDateTime.toLocaleDateString();
+                        const appointmentTime = appointmentDateTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+                        const petCategory = item.petcategory;
+
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+
+                        card.innerHTML = `
                     <h3>Doctor Name: ${doctorName}</h3>
                     <p>Appointment Date: ${appointmentDate}</p>
                     <p>Appointment Time: ${appointmentTime}</p>
                     <p>Pet Category: ${petCategory}</p>
                     <p>User: ${userDetails.name}</p>
                   `;
-          
-                  const c2 = document.createElement('div');
-                  if (userDetails.role === 'user') {
-                    const doctorEmail = docDetails.email;
-                    const doctorPhoneNo = docDetails.phoneNo;
-                    const contactInfo = document.createElement('p');
-                    contactInfo.innerText = `Doctor's Email: ${doctorEmail}\nDoctor's Phone: ${doctorPhoneNo}`;
-                    card.appendChild(contactInfo);
-          
-                    const cancelButton = document.createElement('button');
-                    cancelButton.innerText = 'Cancel';
-                    cancelButton.addEventListener('click', () => {
-                      // Handle cancel button click event
-                      console.log('Cancel button clicked');
-                      console.log('Appointment ID:', _id);
-                    });
-                    c2.appendChild(cancelButton);
-                    card.appendChild(c2);
-          
-                    const rescheduleButton = document.createElement('button');
-                    rescheduleButton.innerText = 'Reschedule';
-                    rescheduleButton.addEventListener('click', () => {
-                      // Handle reschedule button click event
-                      console.log('Reschedule button clicked');
-                      console.log('Appointment ID:', _id);
-          
-                      // Clear existing timing slots
-                      while (c2.firstChild) {
-                        c2.removeChild(c2.firstChild);
-                      }
-          
-                      // Get available timing slots
-                      const slots = Object.values(docDetails.slots);
-                      const availableSlots = slots.filter(slot => slot.status === true);
-          
-                      if (availableSlots.length > 0) {
-                        // Create and append new timing slot elements
-                        availableSlots.forEach(slot => {
-                          const slotButton = document.createElement('button');
-                          slotButton.innerText = slot.timing;
-                          slotButton.addEventListener('click', () => {
-                            // slot selection event you can write here abhinav
-                            console.log('Slot selected:', slot.timing);
-                          });
-                          c2.appendChild(slotButton);
-                        });
-                      } else {
-                        const noSlotsAvailable = document.createElement('p');
-                        noSlotsAvailable.innerText = 'No available slots';
-                        c2.appendChild(noSlotsAvailable);
-                      }
-          
-                      // Create and append back button
-                      const backButton = document.createElement('button');
-                      backButton.innerText = 'Back';
-                      backButton.addEventListener('click', () => {
-                        // Handle back button click event
-                        console.log('Back button clicked');
-          
-                        // Remove slot buttons
-                        while (c2.firstChild) {
-                          c2.removeChild(c2.firstChild);
+
+                        const c2 = document.createElement('div');
+                        if (userDetails.role === 'user') {
+                            const doctorEmail = docDetails.email;
+                            const doctorPhoneNo = docDetails.phoneNo;
+                            const contactInfo = document.createElement('p');
+                            contactInfo.innerText = `Doctor's Email: ${doctorEmail}\nDoctor's Phone: ${doctorPhoneNo}`;
+                            card.appendChild(contactInfo);
+
+                            const cancelButton = document.createElement('button');
+                            cancelButton.innerText = 'Cancel';
+                            cancelButton.addEventListener('click', () => {
+                                // Handle cancel button click event
+                                console.log('Cancel button clicked');
+                                console.log('Appointment ID:', _id);
+                            });
+                            c2.appendChild(cancelButton);
+                            card.appendChild(c2);
+
+                            const rescheduleButton = document.createElement('button');
+                            rescheduleButton.innerText = 'Reschedule';
+                            rescheduleButton.addEventListener('click', () => {
+                                // Handle reschedule button click event
+                                console.log('Reschedule button clicked');
+                                console.log('Appointment ID:', _id);
+
+                                // Clear existing timing slots
+                                while (c2.firstChild) {
+                                    c2.removeChild(c2.firstChild);
+                                }
+
+                                // Get available timing slots
+                                const slots = Object.values(docDetails.slots);
+                                const availableSlots = slots.filter(slot => slot.status === true);
+
+                                if (availableSlots.length > 0) {
+                                    // Created and append new timing slot elements
+                                    availableSlots.forEach(slot => {
+                                        const slotButton = document.createElement('button');
+                                        slotButton.innerText = slot.timing;
+                                        slotButton.addEventListener('click', () => {
+                                            // slot selection event you can write here abhinav
+                                            console.log('Slot selected:', slot.timing);
+                                        });
+                                        c2.appendChild(slotButton);
+                                    });
+                                } else {
+                                    const noSlotsAvailable = document.createElement('p');
+                                    noSlotsAvailable.innerText = 'No available slots';
+                                    c2.appendChild(noSlotsAvailable);
+                                }
+
+                                // Create and append back button
+                                const backButton = document.createElement('button');
+                                backButton.innerText = 'Back';
+                                backButton.addEventListener('click', () => {
+                                    // Handle back button click event
+                                    console.log('Back button clicked');
+
+                                    // Remove slot buttons
+                                    while (c2.firstChild) {
+                                        c2.removeChild(c2.firstChild);
+                                    }
+
+                                    // Show cancel and reschedule buttons again
+                                    c2.appendChild(cancelButton);
+                                    c2.appendChild(rescheduleButton);
+                                });
+
+                                c2.appendChild(backButton);
+                            });
+
+                            c2.appendChild(rescheduleButton);
+                            card.appendChild(c2);
                         }
-          
-                        // Show cancel and reschedule buttons again
-                        c2.appendChild(cancelButton);
-                        c2.appendChild(rescheduleButton);
-                      });
-          
-                      c2.appendChild(backButton);
+
+                        cardContainer.appendChild(card);
                     });
-          
-                    c2.appendChild(rescheduleButton);
-                    card.appendChild(c2);
-                  }
-          
-                  cardContainer.appendChild(card);
+                })
+                .catch(error => {
+                    console.log('Error:', error);
                 });
-              })
-              .catch(error => {
-                console.log('Error:', error);
-              });
-          </script>
-          
+        </script>
+
 
     </section>
 
@@ -782,7 +888,7 @@ li{
 
 
     <!-- ************************************************************************************************** -->
-    
+
 
     <section id="footer">
         <!-- script -->
@@ -795,11 +901,12 @@ li{
         AOS.init();
     </script>
 </body>
+
 </html>
 
 <script>
 
-    
+
     checkURL();
     async function checkURL() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -809,7 +916,7 @@ li{
         const paramLast_Name = urlParams.get('last_name');
         console.log(paramEmail, paramValue,
             paramFirst_Name, paramLast_Name)
-        if (paramValue && paramFirst_Name && paramLast_Name  && paramEmail) {
+        if (paramValue && paramFirst_Name && paramLast_Name && paramEmail) {
             localStorage.setItem("token", JSON.stringify(paramValue));
             localStorage.setItem("userName", JSON.stringify(paramFirst_Name));
             localStorage.setItem("email", JSON.stringify(paramEmail));
@@ -820,10 +927,10 @@ li{
 
 
 
-// *****************************************(NAV BAR)*****************************************************
+    // *****************************************(NAV BAR)*****************************************************
 
 
-document.querySelector("#navbar").innerHTML = `
+    document.querySelector("#navbar").innerHTML = `
 <div id="nav-cont">
     <div id="hamb">
         <i class="fa-solid fa-bars"></i>
@@ -846,81 +953,81 @@ document.querySelector("#navbar").innerHTML = `
 </div>
 `
 
-{/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */}
+    {/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */ }
 
-const logoBtn=document.getElementById("nav-logo");
-const book_app=document.getElementById("book-app");
-const find_doc=document.getElementById("find-doc");
+    const logoBtn = document.getElementById("nav-logo");
+    const book_app = document.getElementById("book-app");
+    const find_doc = document.getElementById("find-doc");
 
-let loginbtn=document.getElementById("nav-login");
-let signupbtn=document.getElementById("nav-reg");
+    let loginbtn = document.getElementById("nav-login");
+    let signupbtn = document.getElementById("nav-reg");
 
-if(localStorage.getItem("token")){
-    loginbtn.innerText=localStorage.getItem("userName");
-    signupbtn.innerText="Log Out";
-}else{
-    loginbtn.innerText="Login";
-    signupbtn.innerText="Signup";
-}
-
-loginbtn.addEventListener("click",(e)=>{
-    if(e.target.innerText=="Login"){
-        window.location.href="../frontend/View/login.html";
+    if (localStorage.getItem("token")) {
+        loginbtn.innerText = localStorage.getItem("userName");
+        signupbtn.innerText = "Log Out";
+    } else {
+        loginbtn.innerText = "Login";
+        signupbtn.innerText = "Signup";
     }
-})
 
-signupbtn.addEventListener("click",(e)=>{
-    if(e.target.innerText=="Signup"){
-        window.location.href="../frontend/View/signup.html";
-    }else{
-        (async function(){
-            try{
-                let res=await fetch("http://localhost:4900/user/logout",{
-                    headers:{
-                        'Content-type':'application/json',
-                        'Authorization':`${localStorage.getItem("token")}`
+    loginbtn.addEventListener("click", (e) => {
+        if (e.target.innerText == "Login") {
+            window.location.href = "../frontend/View/login.html";
+        }
+    })
+
+    signupbtn.addEventListener("click", (e) => {
+        if (e.target.innerText == "Signup") {
+            window.location.href = "../frontend/View/signup.html";
+        } else {
+            (async function () {
+                try {
+                    let res = await fetch("http://localhost:4900/user/logout", {
+                        headers: {
+                            'Content-type': 'application/json',
+                            'Authorization': `${localStorage.getItem("token")}`
+                        }
+                    });
+                    let data = await res.json();
+                    if (data) {
+                        localStorage.clear();
+                        swal("", "You are successfully logged out!", "success").then(function () {
+                            window.location.href = "./index.html";
+                        });
                     }
-                });
-                let data=await res.json();
-                if(data){
-                    localStorage.clear();
-                    swal("", "You are successfully logged out!", "success").then(function() {
-                        window.location.href="./index.html";
-                      });
+                } catch (err) {
+                    console.log(err);
                 }
-            }catch(err){
-                console.log(err);
-            }         
-        })();
-    }
-})
+            })();
+        }
+    })
 
 
-logoBtn.addEventListener("click",(e)=>{
-    window.location.href="./index.html";
-})
+    logoBtn.addEventListener("click", (e) => {
+        window.location.href = "./index.html";
+    })
 
 
-const hamburger=document.getElementById("hamb");
-const navbar_menu=document.getElementById("nav-menu");
+    const hamburger = document.getElementById("hamb");
+    const navbar_menu = document.getElementById("nav-menu");
 
-hamburger.addEventListener("click", (e)=>{
-    if(navbar_menu.style.display=="none"){
-        navbar_menu.style.display="block";
-    }else{
-        navbar_menu.style.display="none";
-    }
-})
+    hamburger.addEventListener("click", (e) => {
+        if (navbar_menu.style.display == "none") {
+            navbar_menu.style.display = "block";
+        } else {
+            navbar_menu.style.display = "none";
+        }
+    })
 
 
 
 
-//*********************************************(FOOTER)******************************************************
+    //*********************************************(FOOTER)******************************************************
 
 
 
 
-document.querySelector("#footer").innerHTML=`
+    document.querySelector("#footer").innerHTML = `
 <div id="footer-cont">
     <div data-aos="fade-right" data-aos-duration="1000" id="footer-left">
         <div>
