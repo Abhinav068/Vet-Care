@@ -1,30 +1,67 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-#nit_booking_form{
+#nit_booking_form {
     border: 1px solid red;
-    width: 50%;
+    width: 90%;
     margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 50px;
+}
+
+
+#nit_booking_form>div:nth-child(1){
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: auto;
+    width: 90%;
 }
 
-#nit_booking_form > input, #nit_booking_form > select{
-    width: 50%;
-    height: 25px;
-    margin: 15px;
+
+#nit_booking_form>div:nth-child(1) >input,
+#nit_booking_form>div:nth-child(1) >select {
+    margin: 10px;
     text-align: center;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 1px solid black;
 }
 
-#nit_booking_form > button{
+
+#nit_booking_form>div:nth-child(1)> button:nth-child(6) {
+    margin: 10px auto;
+    text-align: center;
+    height: 30px;
     border: none;
-    color: white;
+    border-radius: 10px;
     background-color: #007bff;
-    padding: 7px;
-    width: 100px;
-    margin: 20px auto;
+    color: white;
+    width: 30%;
     cursor: pointer;
+}
+
+
+#nit_booking_form>div:nth-child(1)> button:hover {
+    background: transparent;
+    border: 1px solid black;
+    color: #007bff;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#nit_booking_form>div {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 7px;
+}
+
+
+
+#nit_booking_form>div:nth-child(2)>img {
+    width: 100%;
+    height: 75vh;
+    border-radius: 7px;
 }
