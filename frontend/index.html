@@ -763,6 +763,8 @@ document.querySelector("#navbar").innerHTML = `
 const logoBtn=document.getElementById("nav-logo");
 const book_app=document.getElementById("book-app");
 const find_doc=document.getElementById("find-doc");
+const contact_us=document.getElementById("contact-us");
+const about_us=document.getElementById("about-us");
 
 let loginbtn=document.getElementById("nav-login");
 let signupbtn=document.getElementById("nav-reg");
@@ -817,6 +819,12 @@ logoBtn.addEventListener("click",(e)=>{
 
 book_app.addEventListener('click',()=>{
     window.location.href="./view/clinic.html"
+})
+contact_us.addEventListener('click',()=>{
+    window.location.href="./view/contactUs.html"
+})
+about_us.addEventListener('click',()=>{
+    window.location.href="./view/aboutUs.html"
 })
 
 const hamburger=document.getElementById("hamb");
