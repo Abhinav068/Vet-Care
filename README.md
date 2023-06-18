@@ -16,7 +16,7 @@ VetCare:-
 ## Completed a group project within a span of five days:
 [Abhinav](https://github.com/Abhinav068) (Team Lead) (Handled the _ part)
 <br>
-[bhavika Gire](https://github.com/Bhavikagire) (Handled the _ part)
+[Bhavika Gire](https://github.com/Bhavikagire) (Handled the _ part)
 <br>
 [Md Haroon Hussain](https://github.com/mdharoonhussain) (Handled the _ part)
 <br>
