@@ -3,9 +3,9 @@ const bookingparURL = 'http://localhost:4900'
 
 const booktoken = localStorage.getItem('token') || null
 
-// if (!booktoken) {
-//     location.href = '../View/login.html'
-// }
+if (!booktoken) {
+    location.href = '../View/login.html'
+}
 
 
 const DoctorData = JSON.parse(localStorage.getItem('localDR')) || []

@@ -7,9 +7,9 @@ const clinic_base_Url = 'http://localhost:4900'
 const token = localStorage.getItem('token') || null;
 
 
-// if(!token){
-//     location.href='../View/login.html'
-// }
+if(!token){
+    location.href='../View/login.html'
+}
 
 
 const ClinicDiv = document.getElementById('nit_clinic_cards');
