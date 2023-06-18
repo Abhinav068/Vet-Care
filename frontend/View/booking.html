@@ -272,10 +272,10 @@
         </div>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-menu">
-        <li id="book-app"></li>
-        <li id="find-doc"></li>
-        <li></li>
-        <li></li>
+        <li id="book-app">Book an Appointment</li>
+        <li id="find-doc">Find a Doctor</li>
+        <li id="contact-us">Contacts Us</li>
+        <li id="about-us">About Us</li>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
         <button id="nav-login">Login</button>
@@ -339,6 +339,9 @@
         window.location.href = "../index.html";
     })
 
+    book_app.addEventListener('click', () => {
+        window.location.href = "./view/clinic.html"
+    })
 
     const hamburger = document.getElementById("hamb");
     const navbar_menu = document.getElementById("nav-menu");

@@ -746,10 +746,10 @@ document.querySelector("#navbar").innerHTML = `
         </div>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-menu">
-        <li id="book-app"></li>
-        <li id="find-doc"></li>
-        <li></li>
-        <li></li>
+        <li id="book-app">Book an Appointment</li>
+        <li id="find-doc">Find a Doctor</li>
+        <li id="contact-us">Contacts Us</li>
+        <li id="about-us">About Us</li>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
         <button id="nav-login">Login</button>
@@ -763,6 +763,8 @@ document.querySelector("#navbar").innerHTML = `
 const logoBtn=document.getElementById("nav-logo");
 const book_app=document.getElementById("book-app");
 const find_doc=document.getElementById("find-doc");
+const contact_us=document.getElementById("contact-us");
+const about_us=document.getElementById("about-us");
 
 let loginbtn=document.getElementById("nav-login");
 let signupbtn=document.getElementById("nav-reg");
@@ -778,6 +780,9 @@ if(localStorage.getItem("token")){
 loginbtn.addEventListener("click",(e)=>{
     if(e.target.innerText=="Login"){
         window.location.href="../frontend/View/login.html";
+    }
+    else {
+        window.location.href="../frontend/View/userdetail.html";
     }
 })
 
@@ -812,6 +817,15 @@ logoBtn.addEventListener("click",(e)=>{
     window.location.href="./index.html";
 })
 
+book_app.addEventListener('click',()=>{
+    window.location.href="./view/clinic.html"
+})
+contact_us.addEventListener('click',()=>{
+    window.location.href="./view/contactUs.html"
+})
+about_us.addEventListener('click',()=>{
+    window.location.href="./view/aboutUs.html"
+})
 
 const hamburger=document.getElementById("hamb");
 const navbar_menu=document.getElementById("nav-menu");

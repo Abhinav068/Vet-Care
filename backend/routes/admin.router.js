@@ -64,7 +64,7 @@ adminrouter.get('/getdoctors/:clinicid', async (req, res) => {
   }
 })
 
-adminrouter.patch('/booking/:slotno', async (req, res) => {
+adminrouter.post('/booking/:slotno', async (req, res) => {
   try {
     const { doctorsid, userid, petcategory, bookingdate, appointmentdate } = req.body;
     let slotNo = req.params.slotno;
@@ -81,14 +81,14 @@ adminrouter.patch('/booking/:slotno', async (req, res) => {
     });
     let response = await appointment.save();
 
-    let change1 = await doctormodel.findOneAndUpdate(
-      {
-        _id: new ObjectId(doctorsid)
-      }, {
-      [u]: false
-    }
-    );
-    res.status(200).send({ msg: 'Appointment booked sucessfully' });
+    // let change1 = await doctormodel.findOneAndUpdate(
+    //   {
+    //     _id: new ObjectId(doctorsid)
+    //   }, {
+    //   [u]: false
+    // }
+    // );
+    
 
   } catch (error) {
     res.status(404).send({ error });
