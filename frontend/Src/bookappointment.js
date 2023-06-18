@@ -31,7 +31,7 @@ RenderDRinfo(DoctorData[0]._id, DoctorData[0].name)
 const imagechangediv = document.getElementById('random_images')
 
 
-const ArrayImages = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFq_GsDd9rLTifpGi809DqAQClHBDBa-KTbA&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGQLkYMmYOhpMSM574K-y_cwgdoK-f8_3QdQ&usqp=CAU", "https://www.marketplace.org/wp-content/uploads/2021/08/veterinary-care.jpg?fit=2800%2C1866", "https://cdn.sanity.io/images/0vv8moc6/dvm360/054a7b14abf5e97fd9b874b2e7f99a9e04c4b6fa-5050x3366.jpg"]
+const ArrayImages = ["https://acropolium.com/img/articles/on-demand-veterinary-app/img02.jpg","https://images.ctfassets.net/4f3rgqwzdznj/6DOtzwn4l2bVQi3qnIhzAW/b83b900cb429d77157de09ce1e16307e/vet_otoscope_beagles_1308010798.jpg","https://cdcssl.ibsrv.net/ibimg/smb/1920x1280_80/webmgr/0f/o/p/acadia/blade1-10.jpg.webp","https://www.thebestcalgary.com/wp-content/uploads/2020/03/Best-Vet-Clinics-in-Calgary.jpg"]
 
 
 
@@ -100,6 +100,11 @@ function handleBookAppointMent() {
     const bookingObj = { doctorsid:DoctorID.value, userid:userID , petcategory:petcategory.value, bookingdate:bookdate.value, appointmentdate:new Date() }
 
     console.log("booking ==>",bookingObj)
+
+
+    if(!confirm('Are you sure you want to book the appointment ?')){
+        return
+    }
 
 
     fetch(`${bookingparURL}/admin/booking/${timingSlots.value}`, {
