@@ -81,13 +81,13 @@ adminrouter.post('/booking/:slotno', async (req, res) => {
     });
     let response = await appointment.save();
 
-    let change1 = await doctormodel.findOneAndUpdate(
-      {
-        _id: new ObjectId(doctorsid)
-      }, {
-      [u]: false
-    }
-    );
+    // let change1 = await doctormodel.findOneAndUpdate(
+    //   {
+    //     _id: new ObjectId(doctorsid)
+    //   }, {
+    //   [u]: false
+    // }
+    // );
     
 
   } catch (error) {
