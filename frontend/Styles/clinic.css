@@ -5,8 +5,7 @@ body{
 
 
 #nitesh_clinic{
-    border:1px solid red;
-    margin: 80px auto;
+    margin: 100px auto;
     width: 90%;
     padding: 7px;
 }
@@ -25,11 +24,12 @@ body{
     text-align: center;
     width: 30%;
     border: none;
+    outline: none;
     border-bottom: 1px solid black;
     border-top: 0.5px solid black;
     border-radius: 15px;
     height: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 
@@ -40,16 +40,19 @@ body{
     grid-template-columns: repeat(3,1fr);
     gap: 15px;
     margin: auto;
+    
 }
 
 
 .nitesh-cli-card{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 7px;
 }
 
 
 .nitesh-cli-card > div:nth-child(1) > img{
     width: 100%;
+    border-radius: 7px;
    
 }
 
@@ -61,6 +64,7 @@ body{
 
 
 .nitesh-cli-card p{
+    margin-top: 7px;
     text-align: center;
 }
 

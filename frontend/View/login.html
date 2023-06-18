@@ -596,7 +596,7 @@ Swal.fire({
             localStorage.setItem("token",data.token);
             localStorage.setItem("userName",data.name);
             Swal.fire("", "Login Successful", "success").then(function() {
-                window.location.href="../index.html";
+                window.location.href="./clinic.html";
             });
         }
       } catch (error) {
