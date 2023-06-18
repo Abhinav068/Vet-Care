@@ -4,9 +4,8 @@ body {
 }
 
 #nit_booking_form {
-    border: 1px solid red;
     width: 90%;
-    margin: 100px auto;
+    margin: 125px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 50px;
@@ -18,29 +17,34 @@ body {
     flex-direction: column;
     margin: auto;
     width: 90%;
+    padding: 25px 10px;
 }
 
 
 #nit_booking_form>div:nth-child(1) >input,
 #nit_booking_form>div:nth-child(1) >select {
-    margin: 10px;
+    margin: 15px;
     text-align: center;
-    height: 30px;
+    height: 35px;
     border: none;
+    outline: none;
     border-radius: 10px;
     border-bottom: 1px solid black;
+    border-top: 0.2px solid black;
 }
 
 
 #nit_booking_form>div:nth-child(1)> button:nth-child(6) {
     margin: 10px auto;
     text-align: center;
-    height: 30px;
+    /* height: 30px; */
     border: none;
+    outline: none;
     border-radius: 10px;
     background-color: #007bff;
     color: white;
-    width: 30%;
+    width: 32%;
+    padding: 5px 0px;
     cursor: pointer;
 }
 
