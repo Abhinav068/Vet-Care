@@ -3,9 +3,9 @@ const doctorBaseURL = 'http://localhost:4900'
 
 const dtoken = localStorage.getItem('token') || null;
 
-// if(!dtoken){
-//     location.href = '../View/login.html'
-// }
+if(!dtoken){
+    location.href = '../View/login.html'
+}
 
 
 
