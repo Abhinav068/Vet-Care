@@ -462,7 +462,7 @@ signupbtn.addEventListener("click",(e)=>{
     }else{
         (async function(){
             try{
-                let res=await fetch("http://localhost:4900/user/logout",{
+                let res=await fetch("https://plain-gray-moccasins.cyclic.app/user/logout",{
                     headers:{
                         'Content-type':'application/json',
                         'Authorization':`${localStorage.getItem("token")}`

@@ -1,5 +1,5 @@
 
-const doctorBaseURL = 'http://localhost:4900'
+const doctorBaseURL = 'https://plain-gray-moccasins.cyclic.app'
 
 const dtoken = localStorage.getItem('token') || null;
 
