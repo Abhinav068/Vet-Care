@@ -3,6 +3,7 @@ const { clinicmodel } = require('../model/clinic.model');
 const { doctormodel } = require('../model/doctor.model');
 const { Schema, Types } = require('mongoose');
 const { Appointmentmodel } = require('../model/booking.model');
+const { getTime } = require('../controllers/getTimeBySlot');
 
 const adminrouter = Router();
 
@@ -67,16 +68,15 @@ adminrouter.get('/getdoctors/:clinicid', async (req, res) => {
 adminrouter.post('/booking/:slotno', async (req, res) => {
   try {
     const { doctorsid, userid, petcategory, bookingdate, appointmentdate } = req.body;
-    let slotNo = req.params.slotno;
+    let slotNo = req.params.slotno.slice(4);
     const { ObjectId } = Types;
     let u = `slots.slot${slotNo}.status`;
-
     let appointment = new Appointmentmodel({
       doctorsid: new ObjectId(doctorsid),
       userid: new ObjectId(userid),
       petcategory,
       bookingdate,
-      appointmentdate,
+      appointmentdate: getTime(appointmentdate, slotNo),
       slotNo
     });
     let response = await appointment.save();
@@ -160,6 +160,21 @@ adminrouter.patch('/reschedule/:appointmentId', async (req, res) => {
     const apt_id = req.params.appointmentId;
     const { newtime } = req.body;
     const data = await Appointmentmodel.findByIdAndUpdate(apt_id, { appointmentdate: newtime }, { new: true });
+    res.status(200).send({ data });
+  } catch (error) {
+    res.status(404).send({ error });
+  }
+})
+
+adminrouter.patch('/cancel/:appointmentId', async (req, res) => {
+  try {
+    const apt_id = req.params.appointmentId;
+    const data = await Appointmentmodel.findByIdAndUpdate(apt_id, {
+      status: {
+        "code": 3,
+        "name": "cancelled"
+      }
+    }, { new: true });
     res.status(200).send({ data });
   } catch (error) {
     res.status(404).send({ error });
