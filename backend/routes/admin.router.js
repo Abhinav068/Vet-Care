@@ -89,7 +89,7 @@ adminrouter.post('/booking/:slotno', async (req, res) => {
     // }
     // );
 
-    res.status(200).send({ msg: 'Appointment booked successfully' });
+    res.status(200).send({ msg: 'Appointment booked successfully ' });
 
   } catch (error) {
     res.status(404).send({ error });
