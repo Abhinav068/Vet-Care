@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="icon" href="/Vetcare.png">
+    <link rel="icon" href="../../Vetcare.png">
     <style>
         li{
     list-style: none;
@@ -449,16 +449,16 @@ if(localStorage.getItem("token")){
 
 loginbtn.addEventListener("click",(e)=>{
     if(e.target.innerText=="Login"){
-        window.location.href="../View/login.html";
+        window.location.href="./login.html";
     }
     else {
-        window.location.href="../View/userdetail.html";
+        window.location.href="./userdetail.html";
     }   
 })
 
 signupbtn.addEventListener("click",(e)=>{
     if(e.target.innerText=="Signup"){
-        window.location.href="../View/signup.html";
+        window.location.href="./signup.html";
     }else{
         (async function(){
             try{
