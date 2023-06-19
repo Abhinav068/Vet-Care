@@ -106,8 +106,14 @@ function handleBookAppointMent() {
         return
     }
 
+    //console.log("--->",timingSlots.value)
 
-    fetch(`${bookingparURL}/admin/booking/${timingSlots.value}`, {
+    const slotNo = timingSlots.value.split('')[4]
+
+    console.log(slotNo)
+
+    fetch(`${bookingparURL}/admin/booking/${slotNo}`, {
+
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -119,7 +125,7 @@ function handleBookAppointMent() {
             return res.json()
         })
         .then((data) => {
-            console.log(data)
+            console.log("data received",data)
             alert('Appointment has been booked successfully !!')
             window.location.href="../index.html";
         })
