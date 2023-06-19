@@ -757,7 +757,8 @@
         </div>
 
         <script>
-            const userid=localStorage.getItem("userID") || "648ef391dcdea092ef5e9dc3"
+            const userid=localStorage.getItem("userID") || "648ef391dcdea092ef5e9dc3";
+            const userRole=localStorage.getItem("userRole") || "user";
             const cardContainer = document.querySelector('.card-container');
 
             fetch(`http://localhost:4900/admin/getappointments/${userid}`)
@@ -766,7 +767,7 @@
                     const data = responseData.data;
 
                     data.forEach(item => {
-                        const { _id, docDetails, userDetails } = item;
+                        const { _id, docDetails, userDetails, status } = item;
                         const doctorName = docDetails.name;
                         const appointmentDateTime = new Date(item.appointmentdate);
                         const appointmentDate = appointmentDateTime.toLocaleDateString();
@@ -778,14 +779,14 @@
 
                         card.innerHTML = `
                     <h3>Doctor Name: ${doctorName}</h3>
-                    <p>Appointment Date: ${appointmentDate}</p>
+                    <p>Appointment Date: ${appointmentDate} (${status.name})</p>
                     <p>Appointment Time: ${appointmentTime}</p>
                     <p>Pet Category: ${petCategory}</p>
                     <p>User: ${userDetails.first_name} ${userDetails.last_name}</p>
                   `;
 
                         const c2 = document.createElement('div');
-                        if (userDetails.role === 'user') {
+                        if (userRole === 'user') {
                             const doctorEmail = docDetails.email;
                             const doctorPhoneNo = docDetails.phoneNo;
                             const contactInfo = document.createElement('p');
@@ -798,6 +799,16 @@
                                 // Handle cancel button click event
                                 console.log('Cancel button clicked');
                                 console.log('Appointment ID:', _id);
+                                fetch(`http://localhost:4900/admin/cancel/${_id}`, {
+                                                method: 'PATCH',
+                                                headers: { "Content-Type": "application/json" },
+                                            }).then(response => response.json()).then(data => {
+                                                console.log(data);                                                                                                                  
+                                                alert('Appointment cancelled successfully');
+                                                location.reload();
+                                            }).catch(err => {
+                                                console.log(err)
+                                            })
                             });
                             c2.appendChild(cancelButton);
                             card.appendChild(c2);
