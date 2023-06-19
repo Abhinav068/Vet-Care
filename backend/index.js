@@ -64,10 +64,14 @@ app.use('/appointments', router);
 
 // ***************************************************************************************
 
+// mailid=abhinav28897@gmail.com
+// mailpass=gnfkdvgqpnvuqwny
 // PORT = 4900
 // mongoURL= mongodb+srv://krunalgurao1:krunalgurao@vetcare.i2366lh.mongodb.net/user?retryWrites=true&w=majority
 // key= krunal
 // Client_ID= 431668350322-lu2lh6cec85f2daelpqas571lkaldra5.apps.googleusercontent.com
 // Client_secret = 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
+// EMAIL  = bhavikagire3035@gmail.com
+// PASSWORD = vyhwgzappxkrtjhv
 
 //******************************************************************************************* */
