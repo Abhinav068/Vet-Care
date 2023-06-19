@@ -6,7 +6,7 @@ require("dotenv").config();
 const { userRouter } = require("./routes/user.router");
 const { bookrouter } = require("./routes/booking.router");
 const { adminrouter } = require("./routes/admin.router");
-const passport= require("passport");
+const passport = require("passport");
 require("./config/google_oauth")
 
 
@@ -28,9 +28,9 @@ app.use("/admin", adminrouter);
 
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
 
-app.get('/auth/google/callback', 
-passport.authenticate('google', {failureRedirect: '/signup', session: false}),
-  function(req, res) {
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/signup', session: false }),
+  function (req, res) {
     // Successful authentication, redirect home.
     res.redirect("http://127.0.0.1:5503/frontend/index.html");
     // console.log(req.user);
