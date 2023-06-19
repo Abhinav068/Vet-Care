@@ -757,7 +757,7 @@
         </div>
 
         <script>
-            const userid=localStorage.getItem("userID") || "6489f41e44f9bda01cbcda44"
+            const userid=localStorage.getItem("userID") || "648ef391dcdea092ef5e9dc3"
             const cardContainer = document.querySelector('.card-container');
 
             fetch(`http://localhost:4900/admin/getappointments/${userid}`)
@@ -781,7 +781,7 @@
                     <p>Appointment Date: ${appointmentDate}</p>
                     <p>Appointment Time: ${appointmentTime}</p>
                     <p>Pet Category: ${petCategory}</p>
-                    <p>User: ${userDetails.name}</p>
+                    <p>User: ${userDetails.first_name} ${userDetails.last_name}</p>
                   `;
 
                         const c2 = document.createElement('div');
