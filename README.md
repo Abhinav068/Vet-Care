@@ -14,7 +14,7 @@ VetCare:-
  Database:- MongoDB
 
 ## Completed a group project within a span of five days:
-[Abhinav](https://github.com/Abhinav068) (Team Lead) (Handled the _ part)
+[Abhinav](https://github.com/Abhinav068) (Team Lead) (Handled the Model and Scheme part)
 <br>
 [Bhavika Gire](https://github.com/Bhavikagire) (Handled the _ part)
 <br>
