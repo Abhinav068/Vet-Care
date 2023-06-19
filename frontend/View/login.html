@@ -593,8 +593,10 @@ Swal.fire({
   footer: '<a href="">Why do I have this issue?</a>'
 })
         }else{
+            console.log(data);
             localStorage.setItem("token",data.token);
             localStorage.setItem("userName",data.name);
+            localStorage.setItem("userID",data.uid);
             Swal.fire("", "Login Successful", "success").then(function() {
                 window.location.href="./clinic.html";
             });

@@ -25,7 +25,7 @@ adminrouter.post('/addclinic', async (req, res) => {
 
 adminrouter.get('/allclinic', async (req, res) => {
   try {
-    let allclinic= await clinicmodel.find();
+    let allclinic = await clinicmodel.find();
     res.status(200).send({ allclinic });
   } catch (error) {
     res.status(404).send({ error })
@@ -38,7 +38,7 @@ adminrouter.post('/adddoctor/:clinicid', async (req, res) => {
     let doctor = new doctormodel({ name, age, email, phoneNo, clinicId });
 
     let result = await doctor.save();
-  
+
     res.status(200).send({ result });
   } catch (error) {
     console.log(error);
@@ -49,7 +49,7 @@ adminrouter.post('/adddoctor/:clinicid', async (req, res) => {
 adminrouter.get('/getdoctors/:clinicid', async (req, res) => {
   try {
     const { clinicid } = req.params;
-    let doctors= await doctormodel.aggregate([
+    let doctors = await doctormodel.aggregate([
       {
         '$match': {
           'clinicId': clinicid
@@ -88,7 +88,8 @@ adminrouter.post('/booking/:slotno', async (req, res) => {
     //   [u]: false
     // }
     // );
-    
+
+    res.status(200).send({ msg: 'Appointment booked successfully' });
 
   } catch (error) {
     res.status(404).send({ error });
@@ -153,4 +154,16 @@ adminrouter.get('/getappointments/:id', async (req, res) => {
     res.status(404).send({ error });
   }
 })
+
+adminrouter.patch('/reschedule/:appointmentId', async (req, res) => {
+  try {
+    const apt_id = req.params.appointmentId;
+    const { newtime } = req.body;
+    const data = await Appointmentmodel.findByIdAndUpdate(apt_id, { appointmentdate: newtime }, { new: true });
+    res.status(200).send({ data });
+  } catch (error) {
+    res.status(404).send({ error });
+  }
+})
+
 module.exports = { adminrouter }
