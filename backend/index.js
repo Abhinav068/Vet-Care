@@ -6,7 +6,7 @@ require("dotenv").config();
 const { userRouter } = require("./routes/user.router");
 const { bookrouter } = require("./routes/booking.router");
 const { adminrouter } = require("./routes/admin.router");
-const passport= require("passport")
+const passport= require("passport");
 require("./config/google_oauth")
 
 
@@ -54,7 +54,12 @@ app.listen(process.env.PORT || 4900, async () => {
   }
 });
 
+// Bhavika's code
+// const appointmentRoutes = require('./routes/appointmentRoutes');
+const { router } = require("./routes/appointmentRoutes");
 
+// Use appointment routes
+app.use('/appointments', router);
 
 
 // ***************************************************************************************

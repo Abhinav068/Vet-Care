@@ -31,7 +31,7 @@ RenderDRinfo(DoctorData[0]._id, DoctorData[0].name)
 const imagechangediv = document.getElementById('random_images')
 
 
-const ArrayImages = ["https://acropolium.com/img/articles/on-demand-veterinary-app/img02.jpg","https://images.ctfassets.net/4f3rgqwzdznj/6DOtzwn4l2bVQi3qnIhzAW/b83b900cb429d77157de09ce1e16307e/vet_otoscope_beagles_1308010798.jpg","https://cdcssl.ibsrv.net/ibimg/smb/1920x1280_80/webmgr/0f/o/p/acadia/blade1-10.jpg.webp","https://www.thebestcalgary.com/wp-content/uploads/2020/03/Best-Vet-Clinics-in-Calgary.jpg"]
+const ArrayImages = ["https://acropolium.com/img/articles/on-demand-veterinary-app/img02.jpg", "https://images.ctfassets.net/4f3rgqwzdznj/6DOtzwn4l2bVQi3qnIhzAW/b83b900cb429d77157de09ce1e16307e/vet_otoscope_beagles_1308010798.jpg", "https://cdcssl.ibsrv.net/ibimg/smb/1920x1280_80/webmgr/0f/o/p/acadia/blade1-10.jpg.webp", "https://www.thebestcalgary.com/wp-content/uploads/2020/03/Best-Vet-Clinics-in-Calgary.jpg"]
 
 
 
@@ -83,7 +83,7 @@ function RenderDRinfo(did, dname) {
 }
 
 
-function getSlot(ele,i) {
+function getSlot(ele, i) {
 
     return `<option value="slot${i}">${ele}</option>`
 }
@@ -91,18 +91,18 @@ function getSlot(ele,i) {
 
 function handleBookAppointMent() {
 
-    if(!Dname || !DoctorID || !bookdate.value || !petcategory.value || !timingSlots.value){
+    if (!Dname || !DoctorID || !bookdate.value || !petcategory.value || !timingSlots.value) {
         alert('Kindly Enter All required Details !!')
         return
     }
 
 
-    const bookingObj = { doctorsid:DoctorID.value, userid:userID , petcategory:petcategory.value, bookingdate:new Date(), appointmentdate: bookdate.value}
+    const bookingObj = { doctorsid: DoctorID.value, userid: userID, petcategory: petcategory.value, bookingdate: new Date(), appointmentdate: bookdate.value }
 
-    console.log("booking ==>",bookingObj)
+    console.log("booking ==>", bookingObj)
 
 
-    if(!confirm('Are you sure you want to book the appointment ?')){
+    if (!confirm('Are you sure you want to book the appointment ?')) {
         return
     }
 
@@ -118,10 +118,37 @@ function handleBookAppointMent() {
         .then((res) => {
             return res.json()
         })
-        .then((data) => {
-            console.log(data)
+        .then((data1) => {
+            console.log(data1)
             alert('Appointment has been booked successfully !!')
-            window.location.href="../index.html";
+            //request endpoint for confirmation, Bhavika's part 
+            fetch(`${bookingparURL}/appointments/book-appointment`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: "aksahayraogirey@gmail.com",
+                    dateTime: "2023-06-19T15:42:58.440Z"
+                })
+            })
+                .then((res) => {
+                    // console.log('response from mail');
+                    return res.json()
+                })
+                .then((data) => {
+                    console.log('mail', data);
+
+                    // window.location.href="../index.html";
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
+
+
+            //
+            window.location.href = "../index.html";
         })
         .catch((err) => {
             console.log(err)
