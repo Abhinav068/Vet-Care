@@ -757,9 +757,10 @@
         </div>
 
         <script>
+            const userid=localStorage.getItem("userID") || "6489f41e44f9bda01cbcda44"
             const cardContainer = document.querySelector('.card-container');
 
-            fetch('http://localhost:4900/admin/getappointments/6489f41e44f9bda01cbcda44')
+            fetch(`http://localhost:4900/admin/getappointments/${userid}`)
                 .then(response => response.json())
                 .then(responseData => {
                     const data = responseData.data;
@@ -824,7 +825,22 @@
                                         slotButton.innerText = slot.timing;
                                         slotButton.addEventListener('click', () => {
                                             // slot selection event you can write here abhinav
+                                            // booking id, and update booking time, fetch time here
+                                            let newtime = item.appointmentdate.slice(0, 11) + slot.time.slice(0, 2) + ":" + slot.time.slice(3);
+                                            newtime = new Date(newtime).toJSON();
                                             console.log('Slot selected:', slot.timing);
+                                            fetch(`http://localhost:4900/admin/reschedule/${_id}`, {
+                                                method: 'PATCH',
+                                                headers: { "Content-Type": "application/json" },
+                                        
+                                                body: JSON.stringify({ newtime })
+                                            }).then(response => response.json()).then(data => {
+                                                console.log(data);                                                                                                                  
+                                                alert('Appointment Rescheduled successfully');
+                                                location.reload();
+                                            }).catch(err => {
+                                                console.log(err)
+                                            })
                                         });
                                         c2.appendChild(slotButton);
                                     });

@@ -31,7 +31,7 @@ const doctormodel = model('doctor', new Schema({
         slot5: {
             status: { type: Boolean, required: true, default: true },
             timing: { type: String, required: true, default: "01:00pm-12:30pm"},
-            time: { type: String, required: true, default: "01 00" },
+            time: { type: String, required: true, default: "13 00" },
         },
 
     },
