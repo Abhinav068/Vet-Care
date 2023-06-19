@@ -537,7 +537,7 @@
             </form>
             <div style="width:100%; margin:auto; margin-bottom: 5%; border:1px solid lightgray; padding:5%;">
 
-                <a style="display:block" href="http://localhost:4900/auth/google">
+                <a style="display:block" href="https://plain-gray-moccasins.cyclic.app/auth/google">
                 <button
                     style="width:100%; background-color: #0b76c6; color:white; border:1px solid #0b76c6; border-radius: 5px; padding:7px 0;">
                     <i class="fa-brands fa-google"></i> &nbsp;&nbsp; Continue with Google</button>
@@ -575,7 +575,7 @@ form.addEventListener("submit",async (e)=>{
         password:form.exampleFormControlInput2.value
     }
     try {
-        let res=await fetch("http://localhost:4900/user/signin",{
+        let res=await fetch("https://plain-gray-moccasins.cyclic.app/user/signin",{
             method:"POST",
             headers:{
                 'Content-type':'application/json'
@@ -669,7 +669,7 @@ signupbtn.addEventListener("click",(e)=>{
     }else{
         (async function(){
             try{
-                let res=await fetch("http://localhost:4900/user/logout",{
+                let res=await fetch("https://plain-gray-moccasins.cyclic.app/user/logout",{
                     headers:{
                         'Content-type':'application/json',
                         'Authorization':`${localStorage.getItem("token")}`

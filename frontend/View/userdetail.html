@@ -761,7 +761,7 @@
             const userRole=localStorage.getItem("userRole") || "user";
             const cardContainer = document.querySelector('.card-container');
 
-            fetch(`http://localhost:4900/admin/getappointments/${userid}`)
+            fetch(`https://plain-gray-moccasins.cyclic.app/admin/getappointments/${userid}`)
                 .then(response => response.json())
                 .then(responseData => {
                     const data = responseData.data;
@@ -799,7 +799,7 @@
                                 // Handle cancel button click event
                                 console.log('Cancel button clicked');
                                 console.log('Appointment ID:', _id);
-                                fetch(`http://localhost:4900/admin/cancel/${_id}`, {
+                                fetch(`https://plain-gray-moccasins.cyclic.app/admin/cancel/${_id}`, {
                                                 method: 'PATCH',
                                                 headers: { "Content-Type": "application/json" },
                                             }).then(response => response.json()).then(data => {
@@ -840,7 +840,7 @@
                                             let newtime = item.appointmentdate.slice(0, 11) + slot.time.slice(0, 2) + ":" + slot.time.slice(3);
                                             newtime = new Date(newtime).toJSON();
                                             console.log('Slot selected:', slot.timing);
-                                            fetch(`http://localhost:4900/admin/reschedule/${_id}`, {
+                                            fetch(`https://plain-gray-moccasins.cyclic.app/admin/reschedule/${_id}`, {
                                                 method: 'PATCH',
                                                 headers: { "Content-Type": "application/json" },
                                         
@@ -1014,7 +1014,7 @@ signupbtn.addEventListener("click",(e)=>{
     }else{
         (async function(){
             try{
-                let res=await fetch("http://localhost:4900/user/logout",{
+                let res=await fetch("https://plain-gray-moccasins.cyclic.app/user/logout",{
                     headers:{
                         'Content-type':'application/json',
                         'Authorization':`${localStorage.getItem("token")}`

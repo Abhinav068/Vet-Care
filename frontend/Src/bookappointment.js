@@ -1,5 +1,5 @@
 
-const bookingparURL = 'http://localhost:4900'
+const bookingparURL = 'https://plain-gray-moccasins.cyclic.app'
 
 const booktoken = localStorage.getItem('token') || null
 

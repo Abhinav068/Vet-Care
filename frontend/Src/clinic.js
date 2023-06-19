@@ -1,6 +1,6 @@
 // clinic javascript
 
-const clinic_base_Url = 'http://localhost:4900'
+const clinic_base_Url = 'https://plain-gray-moccasins.cyclic.app'
 
 // check user token then proceed
 

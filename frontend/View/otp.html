@@ -180,7 +180,7 @@ let fourth=document.querySelector("#fourth").value;
    
     let p=JSON.parse(new_data);
     console.log(p);
-    let register_request = await fetch("http://localhost:4900/user/signup", {
+    let register_request = await fetch("https://plain-gray-moccasins.cyclic.app/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
