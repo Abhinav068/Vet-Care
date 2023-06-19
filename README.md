@@ -26,23 +26,14 @@ VetCare:-
 <br>
 
 
-## Sign-Up Page
+## Features
 
-
-## Sign-In Page
-
-
-## Home Pages
-
-
-## _ Page
-
-
-## _ Page
-
-
-
-## _ Page
-
-
-## _ Page
+* Signup/Login
+* Logout
+* Admin Page
+* Appointment Booking
+* Authentication/Authorization
+* Email Verification
+* Upcoming Appointments
+* Cancel Appointment
+* Rescheduling Appointment

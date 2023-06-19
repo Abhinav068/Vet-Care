@@ -106,8 +106,14 @@ function handleBookAppointMent() {
         return
     }
 
+    //console.log("--->",timingSlots.value)
 
-    fetch(`${bookingparURL}/admin/booking/${timingSlots.value}`, {
+    const slotNo = timingSlots.value.split('')[4]
+
+    console.log(slotNo)
+
+    fetch(`${bookingparURL}/admin/booking/${slotNo}`, {
+
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -118,8 +124,10 @@ function handleBookAppointMent() {
         .then((res) => {
             return res.json()
         })
+
         .then((data1) => {
             console.log(data1)
+
             alert('Appointment has been booked successfully !!')
             //request endpoint for confirmation, Bhavika's part 
             fetch(`${bookingparURL}/appointments/book-appointment`, {
