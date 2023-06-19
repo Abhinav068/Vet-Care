@@ -757,15 +757,17 @@
         </div>
 
         <script>
+            const userid=localStorage.getItem("userID") || "648ef391dcdea092ef5e9dc3";
+            const userRole=localStorage.getItem("userRole") || "user";
             const cardContainer = document.querySelector('.card-container');
 
-            fetch('http://localhost:4900/admin/getappointments/6489f41e44f9bda01cbcda44')
+            fetch(`http://localhost:4900/admin/getappointments/${userid}`)
                 .then(response => response.json())
                 .then(responseData => {
                     const data = responseData.data;
 
                     data.forEach(item => {
-                        const { _id, docDetails, userDetails } = item;
+                        const { _id, docDetails, userDetails, status } = item;
                         const doctorName = docDetails.name;
                         const appointmentDateTime = new Date(item.appointmentdate);
                         const appointmentDate = appointmentDateTime.toLocaleDateString();
@@ -777,14 +779,14 @@
 
                         card.innerHTML = `
                     <h3>Doctor Name: ${doctorName}</h3>
-                    <p>Appointment Date: ${appointmentDate}</p>
+                    <p>Appointment Date: ${appointmentDate} (${status.name})</p>
                     <p>Appointment Time: ${appointmentTime}</p>
                     <p>Pet Category: ${petCategory}</p>
-                    <p>User: ${userDetails.name}</p>
+                    <p>User: ${userDetails.first_name} ${userDetails.last_name}</p>
                   `;
 
                         const c2 = document.createElement('div');
-                        if (userDetails.role === 'user') {
+                        if (userRole === 'user') {
                             const doctorEmail = docDetails.email;
                             const doctorPhoneNo = docDetails.phoneNo;
                             const contactInfo = document.createElement('p');
@@ -797,6 +799,16 @@
                                 // Handle cancel button click event
                                 console.log('Cancel button clicked');
                                 console.log('Appointment ID:', _id);
+                                fetch(`http://localhost:4900/admin/cancel/${_id}`, {
+                                                method: 'PATCH',
+                                                headers: { "Content-Type": "application/json" },
+                                            }).then(response => response.json()).then(data => {
+                                                console.log(data);                                                                                                                  
+                                                alert('Appointment cancelled successfully');
+                                                location.reload();
+                                            }).catch(err => {
+                                                console.log(err)
+                                            })
                             });
                             c2.appendChild(cancelButton);
                             card.appendChild(c2);
@@ -824,7 +836,22 @@
                                         slotButton.innerText = slot.timing;
                                         slotButton.addEventListener('click', () => {
                                             // slot selection event you can write here abhinav
+                                            // booking id, and update booking time, fetch time here
+                                            let newtime = item.appointmentdate.slice(0, 11) + slot.time.slice(0, 2) + ":" + slot.time.slice(3);
+                                            newtime = new Date(newtime).toJSON();
                                             console.log('Slot selected:', slot.timing);
+                                            fetch(`http://localhost:4900/admin/reschedule/${_id}`, {
+                                                method: 'PATCH',
+                                                headers: { "Content-Type": "application/json" },
+                                        
+                                                body: JSON.stringify({ newtime })
+                                            }).then(response => response.json()).then(data => {
+                                                console.log(data);                                                                                                                  
+                                                alert('Appointment Rescheduled successfully');
+                                                location.reload();
+                                            }).catch(err => {
+                                                console.log(err)
+                                            })
                                         });
                                         c2.appendChild(slotButton);
                                     });
@@ -948,81 +975,90 @@
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
         <button id="nav-login">Login</button>
-        <button id="nav-reg">SignOUT</button>
+        <button id="nav-reg">Signup</button>
     </div>
 </div>
 `
 
-    {/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */ }
+{/* <h5 style="color:rgb(0, 183, 255)">Welcome Krunal<span></span></h5> */}
 
-    const logoBtn = document.getElementById("nav-logo");
-    const book_app = document.getElementById("book-app");
-    const find_doc = document.getElementById("find-doc");
+const logoBtn=document.getElementById("nav-logo");
+const book_app=document.getElementById("book-app");
+const find_doc=document.getElementById("find-doc");
+const contact_us=document.getElementById("contact-us");
+const about_us=document.getElementById("about-us");
 
-    let loginbtn = document.getElementById("nav-login");
-    let signupbtn = document.getElementById("nav-reg");
+let loginbtn=document.getElementById("nav-login");
+let signupbtn=document.getElementById("nav-reg");
 
-    if (localStorage.getItem("token")) {
-        loginbtn.innerText = localStorage.getItem("userName");
-        signupbtn.innerText = "Log Out";
-    } else {
-        loginbtn.innerText = "Login";
-        signupbtn.innerText = "Signup";
+if(localStorage.getItem("token")){
+    loginbtn.innerText=localStorage.getItem("userName");
+    signupbtn.innerText="Log Out";
+}else{
+    loginbtn.innerText="Login";
+    signupbtn.innerText="Signup";
+}
+
+loginbtn.addEventListener("click",(e)=>{
+    if(e.target.innerText=="Login"){
+        window.location.href="../View/login.html";
     }
+    else {
+        window.location.href="../View/userdetail.html";
+    }
+})
 
-    loginbtn.addEventListener("click", (e) => {
-        if (e.target.innerText == "Login") {
-            window.location.href = "../frontend/View/login.html";
-        }
-    })
-
-    signupbtn.addEventListener("click", (e) => {
-        if (e.target.innerText == "Signup") {
-            window.location.href = "../frontend/View/signup.html";
-        } else {
-            (async function () {
-                try {
-                    let res = await fetch("http://localhost:4900/user/logout", {
-                        headers: {
-                            'Content-type': 'application/json',
-                            'Authorization': `${localStorage.getItem("token")}`
-                        }
-                    });
-                    let data = await res.json();
-                    if (data) {
-                        localStorage.clear();
-                        swal("", "You are successfully logged out!", "success").then(function () {
-                            window.location.href = "./index.html";
-                        });
+signupbtn.addEventListener("click",(e)=>{
+    if(e.target.innerText=="Signup"){
+        window.location.href="../View/signup.html";
+    }else{
+        (async function(){
+            try{
+                let res=await fetch("http://localhost:4900/user/logout",{
+                    headers:{
+                        'Content-type':'application/json',
+                        'Authorization':`${localStorage.getItem("token")}`
                     }
-                } catch (err) {
-                    console.log(err);
+                });
+                let data=await res.json();
+                if(data){
+                    localStorage.clear();
+                    swal("", "You are successfully logged out!", "success").then(function() {
+                        window.location.href="../index.html";
+                      });
                 }
-            })();
-        }
-    })
+            }catch(err){
+                console.log(err);
+            }         
+        })();
+    }
+})
 
 
-    logoBtn.addEventListener("click", (e) => {
-        window.location.href = "./index.html";
-    })
+logoBtn.addEventListener("click",(e)=>{
+    window.location.href="../index.html";
+})
 
-    book_app.addEventListener('click', () => {
-        window.location.href = "./view/clinic.html"
-    })
+book_app.addEventListener('click',()=>{
+    window.location.href="./clinic.html"
+})
+contact_us.addEventListener('click',()=>{
+    window.location.href="./contactUs.html"
+})
+about_us.addEventListener('click',()=>{
+    window.location.href="./aboutUs.html"
+})
 
-    const hamburger = document.getElementById("hamb");
-    const navbar_menu = document.getElementById("nav-menu");
+const hamburger=document.getElementById("hamb");
+const navbar_menu=document.getElementById("nav-menu");
 
-    hamburger.addEventListener("click", (e) => {
-        if (navbar_menu.style.display == "none") {
-            navbar_menu.style.display = "block";
-        } else {
-            navbar_menu.style.display = "none";
-        }
-    })
-
-
+hamburger.addEventListener("click", (e)=>{
+    if(navbar_menu.style.display=="none"){
+        navbar_menu.style.display="block";
+    }else{
+        navbar_menu.style.display="none";
+    }
+})
 
 
     //*********************************************(FOOTER)******************************************************

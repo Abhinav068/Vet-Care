@@ -593,8 +593,10 @@ Swal.fire({
   footer: '<a href="">Why do I have this issue?</a>'
 })
         }else{
+            console.log(data);
             localStorage.setItem("token",data.token);
             localStorage.setItem("userName",data.name);
+            localStorage.setItem("userID",data.uid);
             Swal.fire("", "Login Successful", "success").then(function() {
                 window.location.href="./clinic.html";
             });
@@ -617,14 +619,14 @@ document.querySelector("#navbar").innerHTML = `
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-logo">
         <div id="nav-img">
-            <img alt="Logo" src="../../Vetcare.png"/>
+            <img alt="Logo" src="../images/Vetcare.png"/>
         </div>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-menu">
-        <li id="book-app"></li>
-        <li id="find-doc"></li>
-        <li></li>
-        <li></li>
+        <li id="book-app">Book an Appointment</li>
+        <li id="find-doc">Find a Doctor</li>
+        <li id="contact-us">Contacts Us</li>
+        <li id="about-us">About Us</li>
     </div>
     <div data-aos="zoom-out" data-aos-duration="1000" id="nav-user-details">
         <button id="nav-login">Login</button>
@@ -638,6 +640,8 @@ document.querySelector("#navbar").innerHTML = `
 const logoBtn=document.getElementById("nav-logo");
 const book_app=document.getElementById("book-app");
 const find_doc=document.getElementById("find-doc");
+const contact_us=document.getElementById("contact-us");
+const about_us=document.getElementById("about-us");
 
 let loginbtn=document.getElementById("nav-login");
 let signupbtn=document.getElementById("nav-reg");
@@ -652,13 +656,16 @@ if(localStorage.getItem("token")){
 
 loginbtn.addEventListener("click",(e)=>{
     if(e.target.innerText=="Login"){
-        window.location.href="./login.html";
+        window.location.href="../View/login.html";
+    }
+    else {
+        window.location.href="../frontend/View/userdetail.html";
     }
 })
 
 signupbtn.addEventListener("click",(e)=>{
     if(e.target.innerText=="Signup"){
-        window.location.href="./signup.html";
+        window.location.href="../View/signup.html";
     }else{
         (async function(){
             try{
@@ -672,7 +679,7 @@ signupbtn.addEventListener("click",(e)=>{
                 if(data){
                     localStorage.clear();
                     swal("", "You are successfully logged out!", "success").then(function() {
-                        window.location.href="./index.html";
+                        window.location.href="../index.html";
                       });
                 }
             }catch(err){
@@ -682,10 +689,20 @@ signupbtn.addEventListener("click",(e)=>{
     }
 })
 
+
 logoBtn.addEventListener("click",(e)=>{
     window.location.href="../index.html";
 })
 
+book_app.addEventListener('click',()=>{
+    window.location.href="./clinic.html"
+})
+contact_us.addEventListener('click',()=>{
+    window.location.href="./contactUs.html"
+})
+about_us.addEventListener('click',()=>{
+    window.location.href="./aboutUs.html"
+})
 
 const hamburger=document.getElementById("hamb");
 const navbar_menu=document.getElementById("nav-menu");
@@ -697,7 +714,6 @@ hamburger.addEventListener("click", (e)=>{
         navbar_menu.style.display="none";
     }
 })
-
 
 
 

@@ -97,7 +97,7 @@ function handleBookAppointMent() {
     }
 
 
-    const bookingObj = { doctorsid:DoctorID.value, userid:userID , petcategory:petcategory.value, bookingdate:bookdate.value, appointmentdate:new Date() }
+    const bookingObj = { doctorsid:DoctorID.value, userid:userID , petcategory:petcategory.value, bookingdate:new Date(), appointmentdate: bookdate.value}
 
     console.log("booking ==>",bookingObj)
 
@@ -113,6 +113,7 @@ function handleBookAppointMent() {
     console.log(slotNo)
 
     fetch(`${bookingparURL}/admin/booking/${slotNo}`, {
+
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -126,6 +127,7 @@ function handleBookAppointMent() {
         .then((data) => {
             console.log("data received",data)
             alert('Appointment has been booked successfully !!')
+            window.location.href="../index.html";
         })
         .catch((err) => {
             console.log(err)
